@@ -1,0 +1,41 @@
+{
+  "name": "@immigration/chat_admin",
+  "version": "1.0.0",
+  "description": "admin service Protocol Buffers and Connect definitions for TypeScript",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "protobuf",
+    "connect",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.11.0",
+    "google-protobuf": "^4.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./v1/*": {
+      "types": "./dist/v1/*.d.ts",
+      "import": "./dist/v1/*.js"
+    }
+  }
+}
