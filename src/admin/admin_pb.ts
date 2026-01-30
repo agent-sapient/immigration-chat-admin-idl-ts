@@ -2,8 +2,8 @@
 // @generated from file admin/admin.proto (package admin, syntax proto3)
 /* eslint-disable */
 
-import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
-import { enumDesc, fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
+import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
+import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
 import { file_google_api_annotations } from "../google/api/annotations_pb";
 import type { Message } from "@bufbuild/protobuf";
 
@@ -11,77 +11,323 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file admin/admin.proto.
  */
 export const file_admin_admin: GenFile = /*@__PURE__*/
-  fileDesc("ChFhZG1pbi9hZG1pbi5wcm90bxIFYWRtaW4iGQoLVGVzdFJlcXVlc3QSCgoCb2sYASABKAgiMgoMVGVzdFJlc3BvbnNlEiIKCXRlc3RfZW51bRgBIAEoDjIPLmFkbWluLlRlc3RFbnVtKjcKCFRlc3RFbnVtEhkKFVRFU1RfRU5VTV9VTlNQRUNJRklFRBAAEhAKDFRFU1RfRU5VTV9PSxABMlQKC1Rlc3RTZXJ2aWNlEkUKBFRlc3QSEi5hZG1pbi5UZXN0UmVxdWVzdBoTLmFkbWluLlRlc3RSZXNwb25zZSIUgtPkkwIOOgEqIgkvYXBpL3Rlc3RCRFpCZ2l0aHViLmNvbS9hZ2VudC1zYXBpZW50L2ltbWlncmF0aW9uLWNoYXQtYWRtaW4taWRsLWdvL3Byb3RvL2FkbWluYgZwcm90bzM", [file_google_api_annotations]);
+  fileDesc("ChFhZG1pbi9hZG1pbi5wcm90bxIFYWRtaW4iYgoEVXNlchIKCgJpZBgBIAEoCRIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRINCgVwaG9uZRgEIAEoCRIeCgpjcmVhdGVkX2F0GAUgASgJUgpjcmVhdGVkX2F0IlUKEUNyZWF0ZVVzZXJSZXF1ZXN0EhAKCHVzZXJuYW1lGAEgASgJEhAKCHBhc3N3b3JkGAIgASgJEg0KBWVtYWlsGAMgASgJEg0KBXBob25lGAQgASgJIi8KEkNyZWF0ZVVzZXJSZXNwb25zZRIZCgR1c2VyGAEgASgLMgsuYWRtaW4uVXNlciIqCg5HZXRVc2VyUmVxdWVzdBIYCgd1c2VyX2lkGAEgASgJUgd1c2VyX2lkIiwKD0dldFVzZXJSZXNwb25zZRIZCgR1c2VyGAEgASgLMgsuYWRtaW4uVXNlciIyCgxMb2dpblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEAoIcGFzc3dvcmQYAiABKAkiOQoNTG9naW5SZXNwb25zZRINCgV0b2tlbhgBIAEoCRIZCgR1c2VyGAIgASgLMgsuYWRtaW4uVXNlciIeCg1Mb2dvdXRSZXF1ZXN0Eg0KBXRva2VuGAEgASgJIiEKDkxvZ291dFJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgiJAoTUmVmcmVzaFRva2VuUmVxdWVzdBINCgV0b2tlbhgBIAEoCSIlChRSZWZyZXNoVG9rZW5SZXNwb25zZRINCgV0b2tlbhgBIAEoCTKQAgoMQWRtaW5TZXJ2aWNlEkkKBUxvZ2luEhMuYWRtaW4uTG9naW5SZXF1ZXN0GhQuYWRtaW4uTG9naW5SZXNwb25zZSIVgtPkkwIPOgEqIgovYXBpL2xvZ2luEk0KBkxvZ291dBIULmFkbWluLkxvZ291dFJlcXVlc3QaFS5hZG1pbi5Mb2dvdXRSZXNwb25zZSIWgtPkkwIQOgEqIgsvYXBpL2xvZ291dBJmCgxSZWZyZXNoVG9rZW4SGi5hZG1pbi5SZWZyZXNoVG9rZW5SZXF1ZXN0GhsuYWRtaW4uUmVmcmVzaFRva2VuUmVzcG9uc2UiHYLT5JMCFzoBKiISL2FwaS9yZWZyZXNoLXRva2VuMskBChFBZG1pbklubmVyU2VydmljZRJaCgpDcmVhdGVVc2VyEhguYWRtaW4uQ3JlYXRlVXNlclJlcXVlc3QaGS5hZG1pbi5DcmVhdGVVc2VyUmVzcG9uc2UiF4LT5JMCEToBKiIML2lubmVyL3VzZXJzElgKB0dldFVzZXISFS5hZG1pbi5HZXRVc2VyUmVxdWVzdBoWLmFkbWluLkdldFVzZXJSZXNwb25zZSIegtPkkwIYEhYvaW5uZXIvdXNlcnMve3VzZXJfaWR9QkRaQmdpdGh1Yi5jb20vYWdlbnQtc2FwaWVudC9pbW1pZ3JhdGlvbi1jaGF0LWFkbWluLWlkbC1nby9wcm90by9hZG1pbmIGcHJvdG8z", [file_google_api_annotations]);
 
 /**
- * @generated from message admin.TestRequest
+ * 定义用户信息消息类型
+ *
+ * @generated from message admin.User
  */
-export type TestRequest = Message<"admin.TestRequest"> & {
+export type User = Message<"admin.User"> & {
   /**
-   * @generated from field: bool ok = 1;
+   * @generated from field: string id = 1;
    */
-  ok: boolean;
+  id: string;
+
+  /**
+   * @generated from field: string username = 2;
+   */
+  username: string;
+
+  /**
+   * @generated from field: string email = 3;
+   */
+  email: string;
+
+  /**
+   * @generated from field: string phone = 4;
+   */
+  phone: string;
+
+  /**
+   * @generated from field: string created_at = 5 [json_name = "created_at"];
+   */
+  createdAt: string;
 };
 
 /**
- * Describes the message admin.TestRequest.
- * Use `create(TestRequestSchema)` to create a new message.
+ * Describes the message admin.User.
+ * Use `create(UserSchema)` to create a new message.
  */
-export const TestRequestSchema: GenMessage<TestRequest> = /*@__PURE__*/
+export const UserSchema: GenMessage<User> = /*@__PURE__*/
   messageDesc(file_admin_admin, 0);
 
 /**
- * @generated from message admin.TestResponse
+ * 创建用户请求消息
+ *
+ * @generated from message admin.CreateUserRequest
  */
-export type TestResponse = Message<"admin.TestResponse"> & {
+export type CreateUserRequest = Message<"admin.CreateUserRequest"> & {
   /**
-   * @generated from field: admin.TestEnum test_enum = 1;
+   * @generated from field: string username = 1;
    */
-  testEnum: TestEnum;
+  username: string;
+
+  /**
+   * @generated from field: string password = 2;
+   */
+  password: string;
+
+  /**
+   * @generated from field: string email = 3;
+   */
+  email: string;
+
+  /**
+   * @generated from field: string phone = 4;
+   */
+  phone: string;
 };
 
 /**
- * Describes the message admin.TestResponse.
- * Use `create(TestResponseSchema)` to create a new message.
+ * Describes the message admin.CreateUserRequest.
+ * Use `create(CreateUserRequestSchema)` to create a new message.
  */
-export const TestResponseSchema: GenMessage<TestResponse> = /*@__PURE__*/
+export const CreateUserRequestSchema: GenMessage<CreateUserRequest> = /*@__PURE__*/
   messageDesc(file_admin_admin, 1);
 
 /**
- * @generated from enum admin.TestEnum
+ * 创建用户响应消息
+ *
+ * @generated from message admin.CreateUserResponse
  */
-export enum TestEnum {
+export type CreateUserResponse = Message<"admin.CreateUserResponse"> & {
   /**
-   * @generated from enum value: TEST_ENUM_UNSPECIFIED = 0;
+   * @generated from field: admin.User user = 1;
    */
-  UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: TEST_ENUM_OK = 1;
-   */
-  OK = 1,
-}
+  user?: User;
+};
 
 /**
- * Describes the enum admin.TestEnum.
+ * Describes the message admin.CreateUserResponse.
+ * Use `create(CreateUserResponseSchema)` to create a new message.
  */
-export const TestEnumSchema: GenEnum<TestEnum> = /*@__PURE__*/
-  enumDesc(file_admin_admin, 0);
+export const CreateUserResponseSchema: GenMessage<CreateUserResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 2);
 
 /**
- * @generated from service admin.TestService
+ * 获取用户详情请求消息
+ *
+ * @generated from message admin.GetUserRequest
  */
-export const TestService: GenService<{
+export type GetUserRequest = Message<"admin.GetUserRequest"> & {
   /**
-   * Test
+   * @generated from field: string user_id = 1 [json_name = "user_id"];
+   */
+  userId: string;
+};
+
+/**
+ * Describes the message admin.GetUserRequest.
+ * Use `create(GetUserRequestSchema)` to create a new message.
+ */
+export const GetUserRequestSchema: GenMessage<GetUserRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 3);
+
+/**
+ * 获取用户详情响应消息
+ *
+ * @generated from message admin.GetUserResponse
+ */
+export type GetUserResponse = Message<"admin.GetUserResponse"> & {
+  /**
+   * @generated from field: admin.User user = 1;
+   */
+  user?: User;
+};
+
+/**
+ * Describes the message admin.GetUserResponse.
+ * Use `create(GetUserResponseSchema)` to create a new message.
+ */
+export const GetUserResponseSchema: GenMessage<GetUserResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 4);
+
+/**
+ * 用户密码登录请求消息
+ *
+ * @generated from message admin.LoginRequest
+ */
+export type LoginRequest = Message<"admin.LoginRequest"> & {
+  /**
+   * @generated from field: string username = 1;
+   */
+  username: string;
+
+  /**
+   * @generated from field: string password = 2;
+   */
+  password: string;
+};
+
+/**
+ * Describes the message admin.LoginRequest.
+ * Use `create(LoginRequestSchema)` to create a new message.
+ */
+export const LoginRequestSchema: GenMessage<LoginRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 5);
+
+/**
+ * 用户密码登录响应消息
+ *
+ * @generated from message admin.LoginResponse
+ */
+export type LoginResponse = Message<"admin.LoginResponse"> & {
+  /**
+   * @generated from field: string token = 1;
+   */
+  token: string;
+
+  /**
+   * @generated from field: admin.User user = 2;
+   */
+  user?: User;
+};
+
+/**
+ * Describes the message admin.LoginResponse.
+ * Use `create(LoginResponseSchema)` to create a new message.
+ */
+export const LoginResponseSchema: GenMessage<LoginResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 6);
+
+/**
+ * 用户退出请求消息
+ *
+ * @generated from message admin.LogoutRequest
+ */
+export type LogoutRequest = Message<"admin.LogoutRequest"> & {
+  /**
+   * @generated from field: string token = 1;
+   */
+  token: string;
+};
+
+/**
+ * Describes the message admin.LogoutRequest.
+ * Use `create(LogoutRequestSchema)` to create a new message.
+ */
+export const LogoutRequestSchema: GenMessage<LogoutRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 7);
+
+/**
+ * 用户退出响应消息
+ *
+ * @generated from message admin.LogoutResponse
+ */
+export type LogoutResponse = Message<"admin.LogoutResponse"> & {
+  /**
+   * @generated from field: bool success = 1;
+   */
+  success: boolean;
+};
+
+/**
+ * Describes the message admin.LogoutResponse.
+ * Use `create(LogoutResponseSchema)` to create a new message.
+ */
+export const LogoutResponseSchema: GenMessage<LogoutResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 8);
+
+/**
+ * 刷新token请求消息
+ *
+ * @generated from message admin.RefreshTokenRequest
+ */
+export type RefreshTokenRequest = Message<"admin.RefreshTokenRequest"> & {
+  /**
+   * @generated from field: string token = 1;
+   */
+  token: string;
+};
+
+/**
+ * Describes the message admin.RefreshTokenRequest.
+ * Use `create(RefreshTokenRequestSchema)` to create a new message.
+ */
+export const RefreshTokenRequestSchema: GenMessage<RefreshTokenRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 9);
+
+/**
+ * 刷新token响应消息
+ *
+ * @generated from message admin.RefreshTokenResponse
+ */
+export type RefreshTokenResponse = Message<"admin.RefreshTokenResponse"> & {
+  /**
+   * @generated from field: string token = 1;
+   */
+  token: string;
+};
+
+/**
+ * Describes the message admin.RefreshTokenResponse.
+ * Use `create(RefreshTokenResponseSchema)` to create a new message.
+ */
+export const RefreshTokenResponseSchema: GenMessage<RefreshTokenResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 10);
+
+/**
+ * @generated from service admin.AdminService
+ */
+export const AdminService: GenService<{
+  /**
+   * 用户密码登录
    *
-   * @generated from rpc admin.TestService.Test
+   * @generated from rpc admin.AdminService.Login
    */
-  test: {
+  login: {
     methodKind: "unary";
-    input: typeof TestRequestSchema;
-    output: typeof TestResponseSchema;
+    input: typeof LoginRequestSchema;
+    output: typeof LoginResponseSchema;
+  },
+  /**
+   * 用户退出
+   *
+   * @generated from rpc admin.AdminService.Logout
+   */
+  logout: {
+    methodKind: "unary";
+    input: typeof LogoutRequestSchema;
+    output: typeof LogoutResponseSchema;
+  },
+  /**
+   * 刷新token
+   *
+   * @generated from rpc admin.AdminService.RefreshToken
+   */
+  refreshToken: {
+    methodKind: "unary";
+    input: typeof RefreshTokenRequestSchema;
+    output: typeof RefreshTokenResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_admin_admin, 0);
+
+/**
+ * @generated from service admin.AdminInnerService
+ */
+export const AdminInnerService: GenService<{
+  /**
+   * 创建用户
+   *
+   * @generated from rpc admin.AdminInnerService.CreateUser
+   */
+  createUser: {
+    methodKind: "unary";
+    input: typeof CreateUserRequestSchema;
+    output: typeof CreateUserResponseSchema;
+  },
+  /**
+   * 获取用户详情
+   *
+   * @generated from rpc admin.AdminInnerService.GetUser
+   */
+  getUser: {
+    methodKind: "unary";
+    input: typeof GetUserRequestSchema;
+    output: typeof GetUserResponseSchema;
+  },
+}> = /*@__PURE__*/
+  serviceDesc(file_admin_admin, 1);
 
