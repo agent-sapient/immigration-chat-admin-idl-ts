@@ -2,6 +2,7 @@
 
 
 // admin
+export * from "./admin/admin_common_pb.js";
 export * from "./admin/admin_pb.js";
 
 // google api

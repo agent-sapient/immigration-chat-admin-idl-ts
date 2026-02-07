@@ -5,13 +5,15 @@
 import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
 import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
 import { file_google_api_annotations } from "../google/api/annotations_pb";
+import type { ApiResponseSchema, PageInfo, Pagination, TimeRange } from "./admin_common_pb";
+import { file_admin_admin_common } from "./admin_common_pb";
 import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file admin/admin.proto.
  */
 export const file_admin_admin: GenFile = /*@__PURE__*/
-  fileDesc("ChFhZG1pbi9hZG1pbi5wcm90bxIFYWRtaW4iYgoEVXNlchIKCgJpZBgBIAEoCRIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRINCgVwaG9uZRgEIAEoCRIeCgpjcmVhdGVkX2F0GAUgASgJUgpjcmVhdGVkX2F0IlUKEUNyZWF0ZVVzZXJSZXF1ZXN0EhAKCHVzZXJuYW1lGAEgASgJEhAKCHBhc3N3b3JkGAIgASgJEg0KBWVtYWlsGAMgASgJEg0KBXBob25lGAQgASgJIi8KEkNyZWF0ZVVzZXJSZXNwb25zZRIZCgR1c2VyGAEgASgLMgsuYWRtaW4uVXNlciIqCg5HZXRVc2VyUmVxdWVzdBIYCgd1c2VyX2lkGAEgASgJUgd1c2VyX2lkIiwKD0dldFVzZXJSZXNwb25zZRIZCgR1c2VyGAEgASgLMgsuYWRtaW4uVXNlciIyCgxMb2dpblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEAoIcGFzc3dvcmQYAiABKAkiOQoNTG9naW5SZXNwb25zZRINCgV0b2tlbhgBIAEoCRIZCgR1c2VyGAIgASgLMgsuYWRtaW4uVXNlciIeCg1Mb2dvdXRSZXF1ZXN0Eg0KBXRva2VuGAEgASgJIiEKDkxvZ291dFJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgiJAoTUmVmcmVzaFRva2VuUmVxdWVzdBINCgV0b2tlbhgBIAEoCSIlChRSZWZyZXNoVG9rZW5SZXNwb25zZRINCgV0b2tlbhgBIAEoCTKQAgoMQWRtaW5TZXJ2aWNlEkkKBUxvZ2luEhMuYWRtaW4uTG9naW5SZXF1ZXN0GhQuYWRtaW4uTG9naW5SZXNwb25zZSIVgtPkkwIPOgEqIgovYXBpL2xvZ2luEk0KBkxvZ291dBIULmFkbWluLkxvZ291dFJlcXVlc3QaFS5hZG1pbi5Mb2dvdXRSZXNwb25zZSIWgtPkkwIQOgEqIgsvYXBpL2xvZ291dBJmCgxSZWZyZXNoVG9rZW4SGi5hZG1pbi5SZWZyZXNoVG9rZW5SZXF1ZXN0GhsuYWRtaW4uUmVmcmVzaFRva2VuUmVzcG9uc2UiHYLT5JMCFzoBKiISL2FwaS9yZWZyZXNoLXRva2VuMskBChFBZG1pbklubmVyU2VydmljZRJaCgpDcmVhdGVVc2VyEhguYWRtaW4uQ3JlYXRlVXNlclJlcXVlc3QaGS5hZG1pbi5DcmVhdGVVc2VyUmVzcG9uc2UiF4LT5JMCEToBKiIML2lubmVyL3VzZXJzElgKB0dldFVzZXISFS5hZG1pbi5HZXRVc2VyUmVxdWVzdBoWLmFkbWluLkdldFVzZXJSZXNwb25zZSIegtPkkwIYEhYvaW5uZXIvdXNlcnMve3VzZXJfaWR9QkRaQmdpdGh1Yi5jb20vYWdlbnQtc2FwaWVudC9pbW1pZ3JhdGlvbi1jaGF0LWFkbWluLWlkbC1nby9wcm90by9hZG1pbmIGcHJvdG8z", [file_google_api_annotations]);
+  fileDesc("ChFhZG1pbi9hZG1pbi5wcm90bxIFYWRtaW4iYgoEVXNlchIKCgJpZBgBIAEoCRIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRINCgVwaG9uZRgEIAEoCRIeCgpjcmVhdGVkX2F0GAUgASgJUgpjcmVhdGVkX2F0IlUKEUNyZWF0ZVVzZXJSZXF1ZXN0EhAKCHVzZXJuYW1lGAEgASgJEhAKCHBhc3N3b3JkGAIgASgJEg0KBWVtYWlsGAMgASgJEg0KBXBob25lGAQgASgJIi8KEkNyZWF0ZVVzZXJSZXNwb25zZRIZCgR1c2VyGAEgASgLMgsuYWRtaW4uVXNlciIqCg5HZXRVc2VyUmVxdWVzdBIYCgd1c2VyX2lkGAEgASgJUgd1c2VyX2lkIiwKD0dldFVzZXJSZXNwb25zZRIZCgR1c2VyGAEgASgLMgsuYWRtaW4uVXNlciIyCgxMb2dpblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEAoIcGFzc3dvcmQYAiABKAkiOQoNTG9naW5SZXNwb25zZRINCgV0b2tlbhgBIAEoCRIZCgR1c2VyGAIgASgLMgsuYWRtaW4uVXNlciIeCg1Mb2dvdXRSZXF1ZXN0Eg0KBXRva2VuGAEgASgJIiEKDkxvZ291dFJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgiJAoTUmVmcmVzaFRva2VuUmVxdWVzdBINCgV0b2tlbhgBIAEoCSIlChRSZWZyZXNoVG9rZW5SZXNwb25zZRINCgV0b2tlbhgBIAEoCSIgCg1Vc2VySWRSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkizAIKCVVzZXJRdWVyeRIPCgdrZXl3b3JkGAEgASgJEhMKC2ludml0ZV9jb2RlGAIgASgJEhUKDWludml0ZXJfcGhvbmUYAyABKAkSFwoPaW52aXRlcl91c2VyX2lkGAQgASgJEg4KBnN0YXR1cxgFIAMoCRIVCg1pZGVudGl0eV90eXBlGAYgASgJEhIKCnF1b3RhX3R5cGUYByABKAkSFAoMYWN0aXZhdGVkX2J5GAggASgJEiQKCmNyZWF0ZWRfYXQYCSABKAsyEC5hZG1pbi5UaW1lUmFuZ2USJgoMYWN0aXZhdGVkX2F0GAogASgLMhAuYWRtaW4uVGltZVJhbmdlEg8KB3NvcnRfYnkYCyABKAkSEgoKc29ydF9vcmRlchgMIAEoCRIlCgpwYWdpbmF0aW9uGA0gASgLMhEuYWRtaW4uUGFnaW5hdGlvbiI2ChNBY3RpdmF0ZVVzZXJSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkSDgoGcmVhc29uGAIgASgJIjEKDkJhblVzZXJSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkSDgoGcmVhc29uGAIgASgJIjMKEFVuYmFuVXNlclJlcXVlc3QSDwoHdXNlcl9pZBgBIAEoCRIOCgZyZWFzb24YAiABKAkiNAoRRGVsZXRlVXNlclJlcXVlc3QSDwoHdXNlcl9pZBgBIAEoCRIOCgZyZWFzb24YAiABKAkiiQEKFFVwZGF0ZVByb2ZpbGVSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkSGgoNaWRlbnRpdHlfdHlwZRgCIAEoCUgAiAEBEhUKCG9yZ19uYW1lGAMgASgJSAGIAQESDgoGcmVhc29uGAQgASgJQhAKDl9pZGVudGl0eV90eXBlQgsKCV9vcmdfbmFtZSJyCg9TZXRRdW90YVJlcXVlc3QSDwoHdXNlcl9pZBgBIAEoCRIUCgxpc191bmxpbWl0ZWQYAiABKAgSGAoLZGFpbHlfbGltaXQYAyABKAVIAIgBARIOCgZyZWFzb24YBCABKAlCDgoMX2RhaWx5X2xpbWl0ImEKE1VzZXJPcGVyYXRpb25zUXVlcnkSDwoHdXNlcl9pZBgBIAEoCRISCgpvcGVyYXRpb25zGAIgAygJEiUKCnBhZ2luYXRpb24YAyABKAsyES5hZG1pbi5QYWdpbmF0aW9uIlQKEFVzZXJMaXN0UmVzcG9uc2USDAoEY29kZRgBIAEoBRIPCgdtZXNzYWdlGAIgASgJEiEKBGRhdGEYAyABKAsyEy5hZG1pbi5Vc2VyTGlzdERhdGEiVgoMVXNlckxpc3REYXRhEiIKCXBhZ2VfaW5mbxgBIAEoCzIPLmFkbWluLlBhZ2VJbmZvEiIKBWl0ZW1zGAIgAygLMhMuYWRtaW4uVXNlckxpc3RJdGVtIvYBCgxVc2VyTGlzdEl0ZW0SDwoHdXNlcl9pZBgBIAEoCRINCgVwaG9uZRgCIAEoCRIQCghuaWNrbmFtZRgDIAEoCRIVCg1pZGVudGl0eV90eXBlGAQgASgJEhAKCG9yZ19uYW1lGAUgASgJEg4KBnN0YXR1cxgGIAEoCRIjCgVxdW90YRgHIAEoCzIULmFkbWluLlVzZXJRdW90YUluZm8SLAoOaW52aXRlX3N1bW1hcnkYCCABKAsyFC5hZG1pbi5JbnZpdGVTdW1tYXJ5EhQKDGFjdGl2YXRlZF9hdBgJIAEoAxISCgpjcmVhdGVkX2F0GAogASgDIl8KDVVzZXJRdW90YUluZm8SDAoEdHlwZRgBIAEoCRITCgtkYWlseV9saW1pdBgCIAEoBRISCgp1c2VkX3RvZGF5GAMgASgFEhcKD3JlbWFpbmluZ190b2RheRgEIAEoBSIsCg1JbnZpdGVTdW1tYXJ5Eg0KBXRvdGFsGAEgASgFEgwKBHVzZWQYAiABKAUiWAoSVXNlckRldGFpbFJlc3BvbnNlEgwKBGNvZGUYASABKAUSDwoHbWVzc2FnZRgCIAEoCRIjCgRkYXRhGAMgASgLMhUuYWRtaW4uVXNlckRldGFpbERhdGEi9wMKDlVzZXJEZXRhaWxEYXRhEg8KB3VzZXJfaWQYASABKAkSDQoFcGhvbmUYAiABKAkSLwoNcGhvbmVfaGlzdG9yeRgDIAMoCzIYLmFkbWluLlBob25lQ2hhbmdlUmVjb3JkEhAKCG5pY2tuYW1lGAQgASgJEhIKCmF2YXRhcl91cmwYBSABKAkSFQoNaWRlbnRpdHlfdHlwZRgGIAEoCRIQCghvcmdfbmFtZRgHIAEoCRIWCg5hbm51YWxfY2xpZW50cxgIIAEoBRIOCgZzdGF0dXMYCSABKAkSGQoRc3RhdHVzX3VwZGF0ZWRfYXQYCiABKAMSEgoKYXBwbGllZF9hdBgLIAEoAxIUCgxhY3RpdmF0ZWRfYXQYDCABKAMSFAoMYWN0aXZhdGVkX2J5GA0gASgJEh0KFWFjdGl2YXRlZF9ieV9hZG1pbl9pZBgOIAEoCRIWCg5hY3RpdmF0ZWRfY29kZRgPIAEoCRIjCgdpbnZpdGVyGBAgASgLMhIuYWRtaW4uSW52aXRlckluZm8SIwoFcXVvdGEYESABKAsyFC5hZG1pbi5Vc2VyUXVvdGFJbmZvEi0KDGludml0ZV9jb2RlcxgSIAMoCzIXLmFkbWluLkludml0ZUNvZGVEZXRhaWwSEgoKY3JlYXRlZF9hdBgTIAEoAyJNChFQaG9uZUNoYW5nZVJlY29yZBIRCglvbGRfcGhvbmUYASABKAkSEQoJbmV3X3Bob25lGAIgASgJEhIKCmNoYW5nZWRfYXQYAyABKAMiXwoLSW52aXRlckluZm8SDAoEa2luZBgBIAEoCRIPCgd1c2VyX2lkGAIgASgJEg0KBXBob25lGAMgASgJEhAKCG5pY2tuYW1lGAQgASgJEhAKCGFkbWluX2lkGAUgASgJIoYBChBJbnZpdGVDb2RlRGV0YWlsEgwKBGNvZGUYASABKAkSDAoEdHlwZRgCIAEoCRIOCgZzdGF0dXMYAyABKAkSIQoHdXNlZF9ieRgEIAEoCzIQLmFkbWluLlVzZXJCcmllZhIPCgd1c2VkX2F0GAUgASgDEhIKCmNyZWF0ZWRfYXQYBiABKAMiPQoJVXNlckJyaWVmEg8KB3VzZXJfaWQYASABKAkSEAoIbmlja25hbWUYAiABKAkSDQoFcGhvbmUYAyABKAkiYAoWVXNlck9wZXJhdGlvbnNSZXNwb25zZRIMCgRjb2RlGAEgASgFEg8KB21lc3NhZ2UYAiABKAkSJwoEZGF0YRgDIAEoCzIZLmFkbWluLlVzZXJPcGVyYXRpb25zRGF0YSJfChJVc2VyT3BlcmF0aW9uc0RhdGESIgoJcGFnZV9pbmZvGAEgASgLMg8uYWRtaW4uUGFnZUluZm8SJQoFaXRlbXMYAiADKAsyFi5hZG1pbi5PcGVyYXRpb25SZWNvcmQiagoPT3BlcmF0aW9uUmVjb3JkEhEKCW9wZXJhdGlvbhgBIAEoCRIOCgZwYXJhbXMYAiABKAkSDgoGcmVhc29uGAMgASgJEhAKCGFkbWluX2lkGAQgASgJEhIKCmNyZWF0ZWRfYXQYBSABKAMiowIKD0ludml0ZUNvZGVRdWVyeRIMCgRjb2RlGAEgASgJEhAKCGJhdGNoX2lkGAIgASgJEgwKBHR5cGUYAyABKAkSDgoGc3RhdHVzGAQgASgJEhQKDGludml0ZXJfa2luZBgFIAEoCRIXCg9pbnZpdGVyX3VzZXJfaWQYBiABKAkSGAoQaW52aXRlcl9hZG1pbl9pZBgHIAEoCRIXCg91c2VkX2J5X3VzZXJfaWQYCCABKAkSJAoKY3JlYXRlZF9hdBgJIAEoCzIQLmFkbWluLlRpbWVSYW5nZRIPCgdzb3J0X2J5GAogASgJEhIKCnNvcnRfb3JkZXIYCyABKAkSJQoKcGFnaW5hdGlvbhgMIAEoCzIRLmFkbWluLlBhZ2luYXRpb24iJwoWQmF0Y2hRdWVyeUNvZGVzUmVxdWVzdBINCgVjb2RlcxgBIAMoCSJBChRHZW5lcmF0ZUNvZGVzUmVxdWVzdBIMCgR0eXBlGAEgASgJEg0KBWNvdW50GAIgASgFEgwKBG5vdGUYAyABKAkiNwoWUmVnZW5lcmF0ZUNvZGVzUmVxdWVzdBINCgVjb2RlcxgBIAMoCRIOCgZyZWFzb24YAiABKAkiMQoRUmV2b2tlQ29kZVJlcXVlc3QSDAoEY29kZRgBIAEoCRIOCgZyZWFzb24YAiABKAkiYAoWSW52aXRlQ29kZUxpc3RSZXNwb25zZRIMCgRjb2RlGAEgASgFEg8KB21lc3NhZ2UYAiABKAkSJwoEZGF0YRgDIAEoCzIZLmFkbWluLkludml0ZUNvZGVMaXN0RGF0YSJiChJJbnZpdGVDb2RlTGlzdERhdGESIgoJcGFnZV9pbmZvGAEgASgLMg8uYWRtaW4uUGFnZUluZm8SKAoFaXRlbXMYAiADKAsyGS5hZG1pbi5JbnZpdGVDb2RlTGlzdEl0ZW0igAIKEkludml0ZUNvZGVMaXN0SXRlbRIMCgRjb2RlGAEgASgJEgwKBHR5cGUYAiABKAkSDgoGc3RhdHVzGAMgASgJEgwKBG5vdGUYBCABKAkSFAoMaW52aXRlcl9raW5kGAUgASgJEhgKEGludml0ZXJfYWRtaW5faWQYBiABKAkSJgoMaW52aXRlcl91c2VyGAcgASgLMhAuYWRtaW4uVXNlckJyaWVmEiEKB3VzZWRfYnkYCCABKAsyEC5hZG1pbi5Vc2VyQnJpZWYSDwoHdXNlZF9hdBgJIAEoAxIQCghiYXRjaF9pZBgKIAEoCRISCgpjcmVhdGVkX2F0GAsgASgDImIKF0JhdGNoUXVlcnlDb2Rlc1Jlc3BvbnNlEgwKBGNvZGUYASABKAUSDwoHbWVzc2FnZRgCIAEoCRIoCgRkYXRhGAMgASgLMhouYWRtaW4uQmF0Y2hRdWVyeUNvZGVzRGF0YSJSChNCYXRjaFF1ZXJ5Q29kZXNEYXRhEigKBWZvdW5kGAEgAygLMhkuYWRtaW4uSW52aXRlQ29kZUxpc3RJdGVtEhEKCW5vdF9mb3VuZBgCIAMoCSJeChVHZW5lcmF0ZUNvZGVzUmVzcG9uc2USDAoEY29kZRgBIAEoBRIPCgdtZXNzYWdlGAIgASgJEiYKBGRhdGEYAyABKAsyGC5hZG1pbi5HZW5lcmF0ZUNvZGVzRGF0YSJRChFHZW5lcmF0ZUNvZGVzRGF0YRIQCghiYXRjaF9pZBgBIAEoCRINCgVjb2RlcxgCIAMoCRIMCgR0eXBlGAMgASgJEg0KBWNvdW50GAQgASgFImIKF1JlZ2VuZXJhdGVDb2Rlc1Jlc3BvbnNlEgwKBGNvZGUYASABKAUSDwoHbWVzc2FnZRgCIAEoCRIoCgRkYXRhGAMgASgLMhouYWRtaW4uUmVnZW5lcmF0ZUNvZGVzRGF0YSI5ChNSZWdlbmVyYXRlQ29kZXNEYXRhEg8KB3Jldm9rZWQYASADKAkSEQoJZ2VuZXJhdGVkGAIgAygJIloKE0ludml0ZUNoYWluUmVzcG9uc2USDAoEY29kZRgBIAEoBRIPCgdtZXNzYWdlGAIgASgJEiQKBGRhdGEYAyABKAsyFi5hZG1pbi5JbnZpdGVDaGFpbkRhdGEikwEKD0ludml0ZUNoYWluRGF0YRIkCgR1c2VyGAEgASgLMhYuYWRtaW4uSW52aXRlQ2hhaW5Vc2VyEigKCmludml0ZWRfYnkYAiABKAsyFC5hZG1pbi5JbnZpdGVkQnlJbmZvEjAKDWludml0ZWRfdXNlcnMYAyADKAsyGS5hZG1pbi5JbnZpdGVDaGFpbkludml0ZWUibwoPSW52aXRlQ2hhaW5Vc2VyEg8KB3VzZXJfaWQYASABKAkSEAoIbmlja25hbWUYAiABKAkSDQoFcGhvbmUYAyABKAkSFAoMYWN0aXZhdGVkX2J5GAQgASgJEhQKDGFjdGl2YXRlZF9hdBgFIAEoAyJvCg1JbnZpdGVkQnlJbmZvEgwKBGtpbmQYASABKAkSDwoHdXNlcl9pZBgCIAEoCRIQCghuaWNrbmFtZRgDIAEoCRINCgVwaG9uZRgEIAEoCRIQCghhZG1pbl9pZBgFIAEoCRIMCgRjb2RlGAYgASgJImoKEkludml0ZUNoYWluSW52aXRlZRIPCgd1c2VyX2lkGAEgASgJEhAKCG5pY2tuYW1lGAIgASgJEg0KBXBob25lGAMgASgJEgwKBGNvZGUYBCABKAkSFAoMYWN0aXZhdGVkX2F0GAUgASgDMpACCgxBZG1pblNlcnZpY2USSQoFTG9naW4SEy5hZG1pbi5Mb2dpblJlcXVlc3QaFC5hZG1pbi5Mb2dpblJlc3BvbnNlIhWC0+STAg86ASoiCi9hcGkvbG9naW4STQoGTG9nb3V0EhQuYWRtaW4uTG9nb3V0UmVxdWVzdBoVLmFkbWluLkxvZ291dFJlc3BvbnNlIhaC0+STAhA6ASoiCy9hcGkvbG9nb3V0EmYKDFJlZnJlc2hUb2tlbhIaLmFkbWluLlJlZnJlc2hUb2tlblJlcXVlc3QaGy5hZG1pbi5SZWZyZXNoVG9rZW5SZXNwb25zZSIdgtPkkwIXOgEqIhIvYXBpL3JlZnJlc2gtdG9rZW4yyQEKEUFkbWluSW5uZXJTZXJ2aWNlEloKCkNyZWF0ZVVzZXISGC5hZG1pbi5DcmVhdGVVc2VyUmVxdWVzdBoZLmFkbWluLkNyZWF0ZVVzZXJSZXNwb25zZSIXgtPkkwIROgEqIgwvaW5uZXIvdXNlcnMSWAoHR2V0VXNlchIVLmFkbWluLkdldFVzZXJSZXF1ZXN0GhYuYWRtaW4uR2V0VXNlclJlc3BvbnNlIh6C0+STAhgSFi9pbm5lci91c2Vycy97dXNlcl9pZH0yyQQKEEFkbWluVXNlclNlcnZpY2USNQoIR2V0VXNlcnMSEC5hZG1pbi5Vc2VyUXVlcnkaFy5hZG1pbi5Vc2VyTGlzdFJlc3BvbnNlEkAKDUdldFVzZXJEZXRhaWwSFC5hZG1pbi5Vc2VySWRSZXF1ZXN0GhkuYWRtaW4uVXNlckRldGFpbFJlc3BvbnNlEk4KEUdldFVzZXJPcGVyYXRpb25zEhouYWRtaW4uVXNlck9wZXJhdGlvbnNRdWVyeRodLmFkbWluLlVzZXJPcGVyYXRpb25zUmVzcG9uc2USPgoMQWN0aXZhdGVVc2VyEhouYWRtaW4uQWN0aXZhdGVVc2VyUmVxdWVzdBoSLmFkbWluLkFwaVJlc3BvbnNlEjQKB0JhblVzZXISFS5hZG1pbi5CYW5Vc2VyUmVxdWVzdBoSLmFkbWluLkFwaVJlc3BvbnNlEjgKCVVuYmFuVXNlchIXLmFkbWluLlVuYmFuVXNlclJlcXVlc3QaEi5hZG1pbi5BcGlSZXNwb25zZRI6CgpEZWxldGVVc2VyEhguYWRtaW4uRGVsZXRlVXNlclJlcXVlc3QaEi5hZG1pbi5BcGlSZXNwb25zZRJEChFVcGRhdGVVc2VyUHJvZmlsZRIbLmFkbWluLlVwZGF0ZVByb2ZpbGVSZXF1ZXN0GhIuYWRtaW4uQXBpUmVzcG9uc2USOgoMU2V0VXNlclF1b3RhEhYuYWRtaW4uU2V0UXVvdGFSZXF1ZXN0GhIuYWRtaW4uQXBpUmVzcG9uc2UyzQMKEkFkbWluSW52aXRlU2VydmljZRJHCg5HZXRJbnZpdGVDb2RlcxIWLmFkbWluLkludml0ZUNvZGVRdWVyeRodLmFkbWluLkludml0ZUNvZGVMaXN0UmVzcG9uc2USUAoPQmF0Y2hRdWVyeUNvZGVzEh0uYWRtaW4uQmF0Y2hRdWVyeUNvZGVzUmVxdWVzdBoeLmFkbWluLkJhdGNoUXVlcnlDb2Rlc1Jlc3BvbnNlEkIKDkdldEludml0ZUNoYWluEhQuYWRtaW4uVXNlcklkUmVxdWVzdBoaLmFkbWluLkludml0ZUNoYWluUmVzcG9uc2USSgoNR2VuZXJhdGVDb2RlcxIbLmFkbWluLkdlbmVyYXRlQ29kZXNSZXF1ZXN0GhwuYWRtaW4uR2VuZXJhdGVDb2Rlc1Jlc3BvbnNlElAKD1JlZ2VuZXJhdGVDb2RlcxIdLmFkbWluLlJlZ2VuZXJhdGVDb2Rlc1JlcXVlc3QaHi5hZG1pbi5SZWdlbmVyYXRlQ29kZXNSZXNwb25zZRI6CgpSZXZva2VDb2RlEhguYWRtaW4uUmV2b2tlQ29kZVJlcXVlc3QaEi5hZG1pbi5BcGlSZXNwb25zZUJEWkJnaXRodWIuY29tL2FnZW50LXNhcGllbnQvaW1taWdyYXRpb24tY2hhdC1hZG1pbi1pZGwtZ28vcHJvdG8vYWRtaW5iBnByb3RvMw", [file_google_api_annotations, file_admin_admin_common]);
 
 /**
  * 定义用户信息消息类型
@@ -268,6 +270,1971 @@ export const RefreshTokenResponseSchema: GenMessage<RefreshTokenResponse> = /*@_
   messageDesc(file_admin_admin, 10);
 
 /**
+ * UserIdRequest - 用户 ID 请求
+ *
+ * 用于只需要 user_id 参数的接口
+ *
+ * @generated from message admin.UserIdRequest
+ */
+export type UserIdRequest = Message<"admin.UserIdRequest"> & {
+  /**
+   * 用户 ID（UUID 格式）
+   * 示例: "550e8400-e29b-41d4-a716-446655440000"
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+};
+
+/**
+ * Describes the message admin.UserIdRequest.
+ * Use `create(UserIdRequestSchema)` to create a new message.
+ */
+export const UserIdRequestSchema: GenMessage<UserIdRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 11);
+
+/**
+ * UserQuery - 用户列表查询请求
+ *
+ * 支持多维度筛选、排序和分页
+ * 所有筛选条件为可选，不传则不筛选
+ *
+ * -------------------------------------------------------------------------
+ * 搜索条件（模糊匹配）
+ * -------------------------------------------------------------------------
+ *
+ * @generated from message admin.UserQuery
+ */
+export type UserQuery = Message<"admin.UserQuery"> & {
+  /**
+   * 关键词搜索
+   * 搜索范围: 手机号、昵称、机构名、user_id
+   * 匹配方式: 包含（LIKE %keyword%）
+   *
+   * @generated from field: string keyword = 1;
+   */
+  keyword: string;
+
+  /**
+   * 通过使用的邀请码搜索
+   * 精确匹配，找到使用该邀请码激活的用户
+   *
+   * @generated from field: string invite_code = 2;
+   */
+  inviteCode: string;
+
+  /**
+   * 通过邀请人手机号搜索
+   * 找到被该手机号用户邀请的所有用户
+   *
+   * @generated from field: string inviter_phone = 3;
+   */
+  inviterPhone: string;
+
+  /**
+   * 通过邀请人用户 ID 搜索
+   * 找到被该用户邀请的所有用户
+   *
+   * @generated from field: string inviter_user_id = 4;
+   */
+  inviterUserId: string;
+
+  /**
+   * 状态筛选（支持多选）
+   * 可选值:
+   * - "unapplied": 未申请
+   * - "waiting": 排队中
+   * - "active": 已激活
+   * - "banned": 已封禁
+   * - "deleted": 已删除
+   * 示例: ["active", "banned"] 筛选激活和封禁用户
+   *
+   * @generated from field: repeated string status = 5;
+   */
+  status: string[];
+
+  /**
+   * 身份类型筛选
+   * 可选值:
+   * - "individual": 个人用户
+   * - "organization": 机构用户
+   *
+   * @generated from field: string identity_type = 6;
+   */
+  identityType: string;
+
+  /**
+   * 额度类型筛选
+   * 可选值:
+   * - "default": 默认额度（50/天）
+   * - "custom": 自定义额度（管理员设置）
+   * - "unlimited": 不限额
+   *
+   * @generated from field: string quota_type = 7;
+   */
+  quotaType: string;
+
+  /**
+   * 激活方式筛选
+   * 可选值:
+   * - "auto_release": 定时自动放量
+   * - "invite": 邀请码激活
+   * - "admin": 后台手动激活
+   *
+   * @generated from field: string activated_by = 8;
+   */
+  activatedBy: string;
+
+  /**
+   * 注册时间范围（用户创建时间）
+   *
+   * @generated from field: admin.TimeRange created_at = 9;
+   */
+  createdAt?: TimeRange;
+
+  /**
+   * 激活时间范围（状态变为 ACTIVE 的时间）
+   *
+   * @generated from field: admin.TimeRange activated_at = 10;
+   */
+  activatedAt?: TimeRange;
+
+  /**
+   * 排序字段
+   * 可选值:
+   * - "created_at": 注册时间（默认）
+   * - "activated_at": 激活时间
+   * - "used_today": 今日用量
+   *
+   * @generated from field: string sort_by = 11;
+   */
+  sortBy: string;
+
+  /**
+   * 排序方向
+   * 可选值:
+   * - "desc": 降序（默认，最新/最多在前）
+   * - "asc": 升序
+   *
+   * @generated from field: string sort_order = 12;
+   */
+  sortOrder: string;
+
+  /**
+   * 分页参数
+   *
+   * @generated from field: admin.Pagination pagination = 13;
+   */
+  pagination?: Pagination;
+};
+
+/**
+ * Describes the message admin.UserQuery.
+ * Use `create(UserQuerySchema)` to create a new message.
+ */
+export const UserQuerySchema: GenMessage<UserQuery> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 12);
+
+/**
+ * ActivateUserRequest - 激活用户请求
+ *
+ * @generated from message admin.ActivateUserRequest
+ */
+export type ActivateUserRequest = Message<"admin.ActivateUserRequest"> & {
+  /**
+   * 用户 ID（必填）
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 激活原因（必填）
+   * 示例: "VIP 客户优先激活"、"内部测试账号"
+   *
+   * @generated from field: string reason = 2;
+   */
+  reason: string;
+};
+
+/**
+ * Describes the message admin.ActivateUserRequest.
+ * Use `create(ActivateUserRequestSchema)` to create a new message.
+ */
+export const ActivateUserRequestSchema: GenMessage<ActivateUserRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 13);
+
+/**
+ * BanUserRequest - 封禁用户请求
+ *
+ * @generated from message admin.BanUserRequest
+ */
+export type BanUserRequest = Message<"admin.BanUserRequest"> & {
+  /**
+   * 用户 ID（必填）
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 封禁原因（必填）
+   * 示例: "违反使用条款"、"异常使用行为"
+   * 注意: 此原因会记录在案，可能用于用户申诉时的参考
+   *
+   * @generated from field: string reason = 2;
+   */
+  reason: string;
+};
+
+/**
+ * Describes the message admin.BanUserRequest.
+ * Use `create(BanUserRequestSchema)` to create a new message.
+ */
+export const BanUserRequestSchema: GenMessage<BanUserRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 14);
+
+/**
+ * UnbanUserRequest - 解封用户请求
+ *
+ * @generated from message admin.UnbanUserRequest
+ */
+export type UnbanUserRequest = Message<"admin.UnbanUserRequest"> & {
+  /**
+   * 用户 ID（必填）
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 解封原因（必填）
+   * 示例: "用户申诉通过"、"误封"
+   *
+   * @generated from field: string reason = 2;
+   */
+  reason: string;
+};
+
+/**
+ * Describes the message admin.UnbanUserRequest.
+ * Use `create(UnbanUserRequestSchema)` to create a new message.
+ */
+export const UnbanUserRequestSchema: GenMessage<UnbanUserRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 15);
+
+/**
+ * DeleteUserRequest - 删除用户请求
+ *
+ * @generated from message admin.DeleteUserRequest
+ */
+export type DeleteUserRequest = Message<"admin.DeleteUserRequest"> & {
+  /**
+   * 用户 ID（必填）
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 删除原因（必填）
+   * ⚠️ 此操作不可逆，请务必填写准确的原因
+   * 示例: "用户主动申请注销"、"长期未使用清理"
+   *
+   * @generated from field: string reason = 2;
+   */
+  reason: string;
+};
+
+/**
+ * Describes the message admin.DeleteUserRequest.
+ * Use `create(DeleteUserRequestSchema)` to create a new message.
+ */
+export const DeleteUserRequestSchema: GenMessage<DeleteUserRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 16);
+
+/**
+ * UpdateProfileRequest - 修改用户资料请求
+ *
+ * @generated from message admin.UpdateProfileRequest
+ */
+export type UpdateProfileRequest = Message<"admin.UpdateProfileRequest"> & {
+  /**
+   * 用户 ID（必填）
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 身份类型（可选）
+   * 可选值: "individual"（个人）、"organization"（机构）
+   * 不传则不修改
+   *
+   * @generated from field: optional string identity_type = 2;
+   */
+  identityType?: string;
+
+  /**
+   * 机构名称（可选）
+   * 仅当 identity_type 为 "organization" 时有意义
+   * 不传则不修改
+   *
+   * @generated from field: optional string org_name = 3;
+   */
+  orgName?: string;
+
+  /**
+   * 修改原因（必填）
+   *
+   * @generated from field: string reason = 4;
+   */
+  reason: string;
+};
+
+/**
+ * Describes the message admin.UpdateProfileRequest.
+ * Use `create(UpdateProfileRequestSchema)` to create a new message.
+ */
+export const UpdateProfileRequestSchema: GenMessage<UpdateProfileRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 17);
+
+/**
+ * SetQuotaRequest - 设置用户额度请求
+ *
+ * 使用场景:
+ * 1. 设置自定义限额: is_unlimited=false, daily_limit=100
+ * 2. 设置不限额: is_unlimited=true（daily_limit 会被忽略）
+ * 3. 恢复默认限额: is_unlimited=false, 不设置 daily_limit
+ *
+ * @generated from message admin.SetQuotaRequest
+ */
+export type SetQuotaRequest = Message<"admin.SetQuotaRequest"> & {
+  /**
+   * 用户 ID（必填）
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 是否不限额
+   * - true: 用户无使用上限
+   * - false: 使用 daily_limit 或默认限额
+   *
+   * @generated from field: bool is_unlimited = 2;
+   */
+  isUnlimited: boolean;
+
+  /**
+   * 每日限额（可选）
+   * - 设置具体值: 用户每日最多使用该次数
+   * - 不设置（使用 optional）: 恢复默认值（50/天）
+   * 注意: 当 is_unlimited=true 时，此字段无效
+   *
+   * @generated from field: optional int32 daily_limit = 3;
+   */
+  dailyLimit?: number;
+
+  /**
+   * 修改原因（必填）
+   *
+   * @generated from field: string reason = 4;
+   */
+  reason: string;
+};
+
+/**
+ * Describes the message admin.SetQuotaRequest.
+ * Use `create(SetQuotaRequestSchema)` to create a new message.
+ */
+export const SetQuotaRequestSchema: GenMessage<SetQuotaRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 18);
+
+/**
+ * UserOperationsQuery - 用户操作记录查询请求
+ *
+ * @generated from message admin.UserOperationsQuery
+ */
+export type UserOperationsQuery = Message<"admin.UserOperationsQuery"> & {
+  /**
+   * 用户 ID（必填）
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 筛选操作类型（可选，支持多选）
+   * 可选值:
+   * - "activate": 激活
+   * - "ban": 封禁
+   * - "unban": 解封
+   * - "delete": 删除
+   * - "set_quota": 设置限额
+   * - "set_unlimited": 设置不限额
+   * - "update_profile": 修改资料
+   * 不传则返回所有操作记录
+   *
+   * @generated from field: repeated string operations = 2;
+   */
+  operations: string[];
+
+  /**
+   * 分页参数
+   *
+   * @generated from field: admin.Pagination pagination = 3;
+   */
+  pagination?: Pagination;
+};
+
+/**
+ * Describes the message admin.UserOperationsQuery.
+ * Use `create(UserOperationsQuerySchema)` to create a new message.
+ */
+export const UserOperationsQuerySchema: GenMessage<UserOperationsQuery> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 19);
+
+/**
+ * UserListResponse - 用户列表响应
+ *
+ * @generated from message admin.UserListResponse
+ */
+export type UserListResponse = Message<"admin.UserListResponse"> & {
+  /**
+   * 业务状态码（0 表示成功）
+   *
+   * @generated from field: int32 code = 1;
+   */
+  code: number;
+
+  /**
+   * 响应消息
+   *
+   * @generated from field: string message = 2;
+   */
+  message: string;
+
+  /**
+   * 响应数据（code=0 时有值）
+   *
+   * @generated from field: admin.UserListData data = 3;
+   */
+  data?: UserListData;
+};
+
+/**
+ * Describes the message admin.UserListResponse.
+ * Use `create(UserListResponseSchema)` to create a new message.
+ */
+export const UserListResponseSchema: GenMessage<UserListResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 20);
+
+/**
+ * UserListData - 用户列表数据
+ *
+ * @generated from message admin.UserListData
+ */
+export type UserListData = Message<"admin.UserListData"> & {
+  /**
+   * 分页信息
+   *
+   * @generated from field: admin.PageInfo page_info = 1;
+   */
+  pageInfo?: PageInfo;
+
+  /**
+   * 用户列表
+   *
+   * @generated from field: repeated admin.UserListItem items = 2;
+   */
+  items: UserListItem[];
+};
+
+/**
+ * Describes the message admin.UserListData.
+ * Use `create(UserListDataSchema)` to create a new message.
+ */
+export const UserListDataSchema: GenMessage<UserListData> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 21);
+
+/**
+ * UserListItem - 用户列表项
+ *
+ * 包含用户的基本信息和关键状态，用于列表展示
+ *
+ * @generated from message admin.UserListItem
+ */
+export type UserListItem = Message<"admin.UserListItem"> & {
+  /**
+   * 用户 ID（UUID 格式）
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 当前绑定的手机号
+   * 注意: 已删除用户此字段为空
+   *
+   * @generated from field: string phone = 2;
+   */
+  phone: string;
+
+  /**
+   * 用户昵称
+   *
+   * @generated from field: string nickname = 3;
+   */
+  nickname: string;
+
+  /**
+   * 身份类型
+   * 可选值: "individual"（个人）、"organization"（机构）
+   *
+   * @generated from field: string identity_type = 4;
+   */
+  identityType: string;
+
+  /**
+   * 机构名称（仅机构用户有值）
+   *
+   * @generated from field: string org_name = 5;
+   */
+  orgName: string;
+
+  /**
+   * 用户状态
+   * 可选值: "unapplied"、"waiting"、"active"、"banned"、"deleted"
+   *
+   * @generated from field: string status = 6;
+   */
+  status: string;
+
+  /**
+   * 额度信息
+   *
+   * @generated from field: admin.UserQuotaInfo quota = 7;
+   */
+  quota?: UserQuotaInfo;
+
+  /**
+   * 邀请码使用统计
+   * 显示用户的邀请码使用情况，如 "已用 1/3"
+   *
+   * @generated from field: admin.InviteSummary invite_summary = 8;
+   */
+  inviteSummary?: InviteSummary;
+
+  /**
+   * 激活时间（Unix 时间戳，秒）
+   * 未激活用户此字段为 0
+   *
+   * @generated from field: int64 activated_at = 9;
+   */
+  activatedAt: bigint;
+
+  /**
+   * 注册时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 created_at = 10;
+   */
+  createdAt: bigint;
+};
+
+/**
+ * Describes the message admin.UserListItem.
+ * Use `create(UserListItemSchema)` to create a new message.
+ */
+export const UserListItemSchema: GenMessage<UserListItem> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 22);
+
+/**
+ * UserQuotaInfo - 用户额度信息
+ *
+ * @generated from message admin.UserQuotaInfo
+ */
+export type UserQuotaInfo = Message<"admin.UserQuotaInfo"> & {
+  /**
+   * 额度类型
+   * 可选值:
+   * - "default": 默认额度（50/天）
+   * - "custom": 自定义额度
+   * - "unlimited": 不限额
+   *
+   * @generated from field: string type = 1;
+   */
+  type: string;
+
+  /**
+   * 每日限额
+   * 默认 50，不限额用户此字段无意义
+   *
+   * @generated from field: int32 daily_limit = 2;
+   */
+  dailyLimit: number;
+
+  /**
+   * 今日已使用次数
+   * 每日北京时间 0 点重置
+   *
+   * @generated from field: int32 used_today = 3;
+   */
+  usedToday: number;
+
+  /**
+   * 今日剩余次数
+   * - 正常用户: daily_limit - used_today
+   * - 不限额用户: -1（表示无限）
+   *
+   * @generated from field: int32 remaining_today = 4;
+   */
+  remainingToday: number;
+};
+
+/**
+ * Describes the message admin.UserQuotaInfo.
+ * Use `create(UserQuotaInfoSchema)` to create a new message.
+ */
+export const UserQuotaInfoSchema: GenMessage<UserQuotaInfo> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 23);
+
+/**
+ * InviteSummary - 邀请码统计摘要
+ *
+ * 用于列表展示用户的邀请码使用情况
+ *
+ * @generated from message admin.InviteSummary
+ */
+export type InviteSummary = Message<"admin.InviteSummary"> & {
+  /**
+   * 邀请码总数（通常为 3）
+   *
+   * @generated from field: int32 total = 1;
+   */
+  total: number;
+
+  /**
+   * 已使用数量
+   *
+   * @generated from field: int32 used = 2;
+   */
+  used: number;
+};
+
+/**
+ * Describes the message admin.InviteSummary.
+ * Use `create(InviteSummarySchema)` to create a new message.
+ */
+export const InviteSummarySchema: GenMessage<InviteSummary> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 24);
+
+/**
+ * UserDetailResponse - 用户详情响应
+ *
+ * @generated from message admin.UserDetailResponse
+ */
+export type UserDetailResponse = Message<"admin.UserDetailResponse"> & {
+  /**
+   * 业务状态码
+   *
+   * @generated from field: int32 code = 1;
+   */
+  code: number;
+
+  /**
+   * 响应消息
+   *
+   * @generated from field: string message = 2;
+   */
+  message: string;
+
+  /**
+   * 用户详情数据（code=0 时有值）
+   *
+   * @generated from field: admin.UserDetailData data = 3;
+   */
+  data?: UserDetailData;
+};
+
+/**
+ * Describes the message admin.UserDetailResponse.
+ * Use `create(UserDetailResponseSchema)` to create a new message.
+ */
+export const UserDetailResponseSchema: GenMessage<UserDetailResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 25);
+
+/**
+ * UserDetailData - 用户详情数据
+ *
+ * 包含用户的完整信息，用于详情页展示
+ *
+ * -------------------------------------------------------------------------
+ * 基本信息
+ * -------------------------------------------------------------------------
+ *
+ * @generated from message admin.UserDetailData
+ */
+export type UserDetailData = Message<"admin.UserDetailData"> & {
+  /**
+   * 用户 ID（系统内部稳定主键）
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 当前绑定手机号（完整，未脱敏）
+   * 已删除用户此字段为空
+   *
+   * @generated from field: string phone = 2;
+   */
+  phone: string;
+
+  /**
+   * 手机号变更历史
+   * 按时间倒序排列，最新变更在前
+   *
+   * @generated from field: repeated admin.PhoneChangeRecord phone_history = 3;
+   */
+  phoneHistory: PhoneChangeRecord[];
+
+  /**
+   * 用户昵称
+   *
+   * @generated from field: string nickname = 4;
+   */
+  nickname: string;
+
+  /**
+   * 头像 URL
+   *
+   * @generated from field: string avatar_url = 5;
+   */
+  avatarUrl: string;
+
+  /**
+   * 身份类型: "individual" 或 "organization"
+   *
+   * @generated from field: string identity_type = 6;
+   */
+  identityType: string;
+
+  /**
+   * 机构名称（仅机构用户）
+   *
+   * @generated from field: string org_name = 7;
+   */
+  orgName: string;
+
+  /**
+   * 年客户量（用户填写的业务信息）
+   *
+   * @generated from field: int32 annual_clients = 8;
+   */
+  annualClients: number;
+
+  /**
+   * 当前状态
+   * 可选值: "unapplied"、"waiting"、"active"、"banned"、"deleted"
+   *
+   * @generated from field: string status = 9;
+   */
+  status: string;
+
+  /**
+   * 状态最近一次变更时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 status_updated_at = 10;
+   */
+  statusUpdatedAt: bigint;
+
+  /**
+   * 申请内测时间（UNAPPLIED → WAITING 的时间）
+   *
+   * @generated from field: int64 applied_at = 11;
+   */
+  appliedAt: bigint;
+
+  /**
+   * 激活时间（进入 ACTIVE 的时间）
+   *
+   * @generated from field: int64 activated_at = 12;
+   */
+  activatedAt: bigint;
+
+  /**
+   * 激活方式
+   * 可选值:
+   * - "auto_release": 定时自动放量
+   * - "invite": 邀请码激活
+   * - "admin": 后台手动激活
+   *
+   * @generated from field: string activated_by = 13;
+   */
+  activatedBy: string;
+
+  /**
+   * 激活操作的管理员 ID
+   * 仅当 activated_by="admin" 时有值
+   *
+   * @generated from field: string activated_by_admin_id = 14;
+   */
+  activatedByAdminId: string;
+
+  /**
+   * 使用的邀请码
+   * 仅当 activated_by="invite" 时有值
+   *
+   * @generated from field: string activated_code = 15;
+   */
+  activatedCode: string;
+
+  /**
+   * 邀请人信息
+   * 通过邀请码激活时记录谁邀请的
+   *
+   * @generated from field: admin.InviterInfo inviter = 16;
+   */
+  inviter?: InviterInfo;
+
+  /**
+   * 当前额度配置
+   *
+   * @generated from field: admin.UserQuotaInfo quota = 17;
+   */
+  quota?: UserQuotaInfo;
+
+  /**
+   * 用户的邀请码列表
+   * 用户激活时自动获得 3 个普通邀请码
+   *
+   * @generated from field: repeated admin.InviteCodeDetail invite_codes = 18;
+   */
+  inviteCodes: InviteCodeDetail[];
+
+  /**
+   * 注册时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 created_at = 19;
+   */
+  createdAt: bigint;
+};
+
+/**
+ * Describes the message admin.UserDetailData.
+ * Use `create(UserDetailDataSchema)` to create a new message.
+ */
+export const UserDetailDataSchema: GenMessage<UserDetailData> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 26);
+
+/**
+ * PhoneChangeRecord - 手机号变更记录
+ *
+ * @generated from message admin.PhoneChangeRecord
+ */
+export type PhoneChangeRecord = Message<"admin.PhoneChangeRecord"> & {
+  /**
+   * 旧手机号
+   *
+   * @generated from field: string old_phone = 1;
+   */
+  oldPhone: string;
+
+  /**
+   * 新手机号
+   *
+   * @generated from field: string new_phone = 2;
+   */
+  newPhone: string;
+
+  /**
+   * 变更时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 changed_at = 3;
+   */
+  changedAt: bigint;
+};
+
+/**
+ * Describes the message admin.PhoneChangeRecord.
+ * Use `create(PhoneChangeRecordSchema)` to create a new message.
+ */
+export const PhoneChangeRecordSchema: GenMessage<PhoneChangeRecord> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 27);
+
+/**
+ * InviterInfo - 邀请人信息
+ *
+ * 记录邀请码的来源（用户邀请或管理员生成）
+ *
+ * @generated from message admin.InviterInfo
+ */
+export type InviterInfo = Message<"admin.InviterInfo"> & {
+  /**
+   * 邀请人类型
+   * 可选值:
+   * - "user": 用户邀请（通过用户的邀请码）
+   * - "admin": 管理员邀请（通过管理员生成的邀请码）
+   *
+   * @generated from field: string kind = 1;
+   */
+  kind: string;
+
+  /**
+   * 邀请人用户 ID（kind="user" 时有值）
+   *
+   * @generated from field: string user_id = 2;
+   */
+  userId: string;
+
+  /**
+   * 邀请人手机号（kind="user" 时有值，脱敏显示）
+   *
+   * @generated from field: string phone = 3;
+   */
+  phone: string;
+
+  /**
+   * 邀请人昵称（kind="user" 时有值）
+   *
+   * @generated from field: string nickname = 4;
+   */
+  nickname: string;
+
+  /**
+   * 管理员 ID（kind="admin" 时有值）
+   *
+   * @generated from field: string admin_id = 5;
+   */
+  adminId: string;
+};
+
+/**
+ * Describes the message admin.InviterInfo.
+ * Use `create(InviterInfoSchema)` to create a new message.
+ */
+export const InviterInfoSchema: GenMessage<InviterInfo> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 28);
+
+/**
+ * InviteCodeDetail - 邀请码详情
+ *
+ * 用于用户详情页展示用户的邀请码列表
+ *
+ * @generated from message admin.InviteCodeDetail
+ */
+export type InviteCodeDetail = Message<"admin.InviteCodeDetail"> & {
+  /**
+   * 邀请码字符串（8 位大写字母+数字）
+   * 示例: "ABC12345"
+   *
+   * @generated from field: string code = 1;
+   */
+  code: string;
+
+  /**
+   * 邀请码类型
+   * 可选值:
+   * - "normal": 普通邀请码
+   * - "unlimited": 不限额邀请码
+   *
+   * @generated from field: string type = 2;
+   */
+  type: string;
+
+  /**
+   * 邀请码状态
+   * 可选值:
+   * - "unused": 未使用
+   * - "used": 已使用
+   * - "revoked": 已作废
+   * - "suspended": 已暂停（用户被封禁时暂停）
+   *
+   * @generated from field: string status = 3;
+   */
+  status: string;
+
+  /**
+   * 使用者信息（status="used" 时有值）
+   *
+   * @generated from field: admin.UserBrief used_by = 4;
+   */
+  usedBy?: UserBrief;
+
+  /**
+   * 使用时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 used_at = 5;
+   */
+  usedAt: bigint;
+
+  /**
+   * 创建时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 created_at = 6;
+   */
+  createdAt: bigint;
+};
+
+/**
+ * Describes the message admin.InviteCodeDetail.
+ * Use `create(InviteCodeDetailSchema)` to create a new message.
+ */
+export const InviteCodeDetailSchema: GenMessage<InviteCodeDetail> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 29);
+
+/**
+ * UserBrief - 用户简要信息
+ *
+ * 用于在其他对象中引用用户时的简要展示
+ *
+ * @generated from message admin.UserBrief
+ */
+export type UserBrief = Message<"admin.UserBrief"> & {
+  /**
+   * 用户 ID
+   *
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * 用户昵称
+   *
+   * @generated from field: string nickname = 2;
+   */
+  nickname: string;
+
+  /**
+   * 手机号（脱敏显示，如 "138****1234"）
+   *
+   * @generated from field: string phone = 3;
+   */
+  phone: string;
+};
+
+/**
+ * Describes the message admin.UserBrief.
+ * Use `create(UserBriefSchema)` to create a new message.
+ */
+export const UserBriefSchema: GenMessage<UserBrief> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 30);
+
+/**
+ * UserOperationsResponse - 用户操作记录响应
+ *
+ * @generated from message admin.UserOperationsResponse
+ */
+export type UserOperationsResponse = Message<"admin.UserOperationsResponse"> & {
+  /**
+   * 业务状态码
+   *
+   * @generated from field: int32 code = 1;
+   */
+  code: number;
+
+  /**
+   * 响应消息
+   *
+   * @generated from field: string message = 2;
+   */
+  message: string;
+
+  /**
+   * 操作记录数据
+   *
+   * @generated from field: admin.UserOperationsData data = 3;
+   */
+  data?: UserOperationsData;
+};
+
+/**
+ * Describes the message admin.UserOperationsResponse.
+ * Use `create(UserOperationsResponseSchema)` to create a new message.
+ */
+export const UserOperationsResponseSchema: GenMessage<UserOperationsResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 31);
+
+/**
+ * UserOperationsData - 用户操作记录数据
+ *
+ * @generated from message admin.UserOperationsData
+ */
+export type UserOperationsData = Message<"admin.UserOperationsData"> & {
+  /**
+   * 分页信息
+   *
+   * @generated from field: admin.PageInfo page_info = 1;
+   */
+  pageInfo?: PageInfo;
+
+  /**
+   * 操作记录列表
+   *
+   * @generated from field: repeated admin.OperationRecord items = 2;
+   */
+  items: OperationRecord[];
+};
+
+/**
+ * Describes the message admin.UserOperationsData.
+ * Use `create(UserOperationsDataSchema)` to create a new message.
+ */
+export const UserOperationsDataSchema: GenMessage<UserOperationsData> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 32);
+
+/**
+ * OperationRecord - 操作记录
+ *
+ * 记录管理员对用户执行的操作，用于审计
+ *
+ * @generated from message admin.OperationRecord
+ */
+export type OperationRecord = Message<"admin.OperationRecord"> & {
+  /**
+   * 操作类型
+   * 可选值:
+   * - "activate": 激活用户
+   * - "ban": 封禁用户
+   * - "unban": 解封用户
+   * - "delete": 删除用户
+   * - "set_quota": 设置限额
+   * - "set_unlimited": 设置不限额
+   * - "update_profile": 修改用户资料
+   * - "generate_code": 生成邀请码
+   * - "revoke_code": 作废邀请码
+   * - "regenerate_code": 重新生成邀请码
+   *
+   * @generated from field: string operation = 1;
+   */
+  operation: string;
+
+  /**
+   * 操作参数（JSON 字符串）
+   * 记录操作的具体参数，如:
+   * - 设置限额: {"daily_limit": 100}
+   * - 封禁用户: {"revoked_tokens": 2, "suspended_codes": 3}
+   *
+   * @generated from field: string params = 2;
+   */
+  params: string;
+
+  /**
+   * 操作原因
+   *
+   * @generated from field: string reason = 3;
+   */
+  reason: string;
+
+  /**
+   * 操作者管理员 ID
+   *
+   * @generated from field: string admin_id = 4;
+   */
+  adminId: string;
+
+  /**
+   * 操作时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 created_at = 5;
+   */
+  createdAt: bigint;
+};
+
+/**
+ * Describes the message admin.OperationRecord.
+ * Use `create(OperationRecordSchema)` to create a new message.
+ */
+export const OperationRecordSchema: GenMessage<OperationRecord> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 33);
+
+/**
+ * InviteCodeQuery - 邀请码列表查询请求
+ *
+ * -------------------------------------------------------------------------
+ * 搜索条件
+ * -------------------------------------------------------------------------
+ *
+ * @generated from message admin.InviteCodeQuery
+ */
+export type InviteCodeQuery = Message<"admin.InviteCodeQuery"> & {
+  /**
+   * 邀请码精确匹配
+   * 支持大小写，会自动转为大写匹配
+   *
+   * @generated from field: string code = 1;
+   */
+  code: string;
+
+  /**
+   * 批次号筛选
+   * 同一批生成的邀请码共享一个 batch_id
+   *
+   * @generated from field: string batch_id = 2;
+   */
+  batchId: string;
+
+  /**
+   * 类型筛选
+   * 可选值: "normal"（普通）、"unlimited"（不限额）
+   *
+   * @generated from field: string type = 3;
+   */
+  type: string;
+
+  /**
+   * 状态筛选
+   * 可选值:
+   * - "unused": 未使用
+   * - "used": 已使用
+   * - "revoked": 已作废
+   * - "suspended": 已暂停（用户被封禁时）
+   *
+   * @generated from field: string status = 4;
+   */
+  status: string;
+
+  /**
+   * 生成者类型筛选
+   * 可选值: "user"（用户生成）、"admin"（管理员生成）
+   *
+   * @generated from field: string inviter_kind = 5;
+   */
+  inviterKind: string;
+
+  /**
+   * 生成者用户 ID（inviter_kind="user" 时）
+   *
+   * @generated from field: string inviter_user_id = 6;
+   */
+  inviterUserId: string;
+
+  /**
+   * 生成者管理员 ID（inviter_kind="admin" 时）
+   *
+   * @generated from field: string inviter_admin_id = 7;
+   */
+  inviterAdminId: string;
+
+  /**
+   * 使用者用户 ID
+   * 筛选被指定用户使用的邀请码
+   *
+   * @generated from field: string used_by_user_id = 8;
+   */
+  usedByUserId: string;
+
+  /**
+   * 创建时间范围
+   *
+   * @generated from field: admin.TimeRange created_at = 9;
+   */
+  createdAt?: TimeRange;
+
+  /**
+   * 排序字段
+   * 可选值: "created_at"（默认）、"used_at"
+   *
+   * @generated from field: string sort_by = 10;
+   */
+  sortBy: string;
+
+  /**
+   * 排序方向
+   * 可选值: "desc"（默认）、"asc"
+   *
+   * @generated from field: string sort_order = 11;
+   */
+  sortOrder: string;
+
+  /**
+   * @generated from field: admin.Pagination pagination = 12;
+   */
+  pagination?: Pagination;
+};
+
+/**
+ * Describes the message admin.InviteCodeQuery.
+ * Use `create(InviteCodeQuerySchema)` to create a new message.
+ */
+export const InviteCodeQuerySchema: GenMessage<InviteCodeQuery> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 34);
+
+/**
+ * BatchQueryCodesRequest - 批量查询邀请码请求
+ *
+ * @generated from message admin.BatchQueryCodesRequest
+ */
+export type BatchQueryCodesRequest = Message<"admin.BatchQueryCodesRequest"> & {
+  /**
+   * 邀请码字符串列表
+   * 最多 100 个，超出返回错误
+   * 支持大小写，会自动转为大写匹配
+   *
+   * @generated from field: repeated string codes = 1;
+   */
+  codes: string[];
+};
+
+/**
+ * Describes the message admin.BatchQueryCodesRequest.
+ * Use `create(BatchQueryCodesRequestSchema)` to create a new message.
+ */
+export const BatchQueryCodesRequestSchema: GenMessage<BatchQueryCodesRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 35);
+
+/**
+ * GenerateCodesRequest - 生成邀请码请求
+ *
+ * @generated from message admin.GenerateCodesRequest
+ */
+export type GenerateCodesRequest = Message<"admin.GenerateCodesRequest"> & {
+  /**
+   * 邀请码类型（必填）
+   * 可选值:
+   * - "normal": 普通邀请码（Ops、SuperAdmin 可生成）
+   * - "unlimited": 不限额邀请码（仅 SuperAdmin 可生成）
+   *
+   * @generated from field: string type = 1;
+   */
+  type: string;
+
+  /**
+   * 生成数量（必填）
+   * 范围: 1-100
+   *
+   * @generated from field: int32 count = 2;
+   */
+  count: number;
+
+  /**
+   * 备注说明（必填）
+   * 同一批次的邀请码共享此备注
+   * 示例: "2026年2月营销活动"、"内部测试用"
+   *
+   * @generated from field: string note = 3;
+   */
+  note: string;
+};
+
+/**
+ * Describes the message admin.GenerateCodesRequest.
+ * Use `create(GenerateCodesRequestSchema)` to create a new message.
+ */
+export const GenerateCodesRequestSchema: GenMessage<GenerateCodesRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 36);
+
+/**
+ * RegenerateCodesRequest - 重新生成邀请码请求（换码）
+ *
+ * @generated from message admin.RegenerateCodesRequest
+ */
+export type RegenerateCodesRequest = Message<"admin.RegenerateCodesRequest"> & {
+  /**
+   * 要作废并重新生成的邀请码列表
+   * 仅对 "unused" 状态的邀请码有效
+   *
+   * @generated from field: repeated string codes = 1;
+   */
+  codes: string[];
+
+  /**
+   * 换码原因（必填）
+   * 示例: "原码已泄露"、"用户申请换码"
+   *
+   * @generated from field: string reason = 2;
+   */
+  reason: string;
+};
+
+/**
+ * Describes the message admin.RegenerateCodesRequest.
+ * Use `create(RegenerateCodesRequestSchema)` to create a new message.
+ */
+export const RegenerateCodesRequestSchema: GenMessage<RegenerateCodesRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 37);
+
+/**
+ * RevokeCodeRequest - 作废邀请码请求
+ *
+ * @generated from message admin.RevokeCodeRequest
+ */
+export type RevokeCodeRequest = Message<"admin.RevokeCodeRequest"> & {
+  /**
+   * 邀请码字符串（必填）
+   *
+   * @generated from field: string code = 1;
+   */
+  code: string;
+
+  /**
+   * 作废原因（必填）
+   *
+   * @generated from field: string reason = 2;
+   */
+  reason: string;
+};
+
+/**
+ * Describes the message admin.RevokeCodeRequest.
+ * Use `create(RevokeCodeRequestSchema)` to create a new message.
+ */
+export const RevokeCodeRequestSchema: GenMessage<RevokeCodeRequest> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 38);
+
+/**
+ * InviteCodeListResponse - 邀请码列表响应
+ *
+ * @generated from message admin.InviteCodeListResponse
+ */
+export type InviteCodeListResponse = Message<"admin.InviteCodeListResponse"> & {
+  /**
+   * @generated from field: int32 code = 1;
+   */
+  code: number;
+
+  /**
+   * @generated from field: string message = 2;
+   */
+  message: string;
+
+  /**
+   * @generated from field: admin.InviteCodeListData data = 3;
+   */
+  data?: InviteCodeListData;
+};
+
+/**
+ * Describes the message admin.InviteCodeListResponse.
+ * Use `create(InviteCodeListResponseSchema)` to create a new message.
+ */
+export const InviteCodeListResponseSchema: GenMessage<InviteCodeListResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 39);
+
+/**
+ * InviteCodeListData - 邀请码列表数据
+ *
+ * @generated from message admin.InviteCodeListData
+ */
+export type InviteCodeListData = Message<"admin.InviteCodeListData"> & {
+  /**
+   * 分页信息
+   *
+   * @generated from field: admin.PageInfo page_info = 1;
+   */
+  pageInfo?: PageInfo;
+
+  /**
+   * 邀请码列表
+   *
+   * @generated from field: repeated admin.InviteCodeListItem items = 2;
+   */
+  items: InviteCodeListItem[];
+};
+
+/**
+ * Describes the message admin.InviteCodeListData.
+ * Use `create(InviteCodeListDataSchema)` to create a new message.
+ */
+export const InviteCodeListDataSchema: GenMessage<InviteCodeListData> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 40);
+
+/**
+ * InviteCodeListItem - 邀请码列表项
+ *
+ * 包含邀请码的完整信息
+ *
+ * @generated from message admin.InviteCodeListItem
+ */
+export type InviteCodeListItem = Message<"admin.InviteCodeListItem"> & {
+  /**
+   * 邀请码字符串（8 位大写字母+数字）
+   *
+   * @generated from field: string code = 1;
+   */
+  code: string;
+
+  /**
+   * 邀请码类型: "normal" 或 "unlimited"
+   *
+   * @generated from field: string type = 2;
+   */
+  type: string;
+
+  /**
+   * 邀请码状态: "unused"、"used"、"revoked"、"suspended"
+   *
+   * @generated from field: string status = 3;
+   */
+  status: string;
+
+  /**
+   * 备注说明
+   *
+   * @generated from field: string note = 4;
+   */
+  note: string;
+
+  /**
+   * 生成者类型: "user" 或 "admin"
+   *
+   * @generated from field: string inviter_kind = 5;
+   */
+  inviterKind: string;
+
+  /**
+   * 生成者管理员 ID（inviter_kind="admin" 时有值）
+   *
+   * @generated from field: string inviter_admin_id = 6;
+   */
+  inviterAdminId: string;
+
+  /**
+   * 生成者用户信息（inviter_kind="user" 时有值）
+   *
+   * @generated from field: admin.UserBrief inviter_user = 7;
+   */
+  inviterUser?: UserBrief;
+
+  /**
+   * 使用者信息（status="used" 时有值）
+   *
+   * @generated from field: admin.UserBrief used_by = 8;
+   */
+  usedBy?: UserBrief;
+
+  /**
+   * 使用时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 used_at = 9;
+   */
+  usedAt: bigint;
+
+  /**
+   * 批次号（同一批生成的邀请码共享）
+   *
+   * @generated from field: string batch_id = 10;
+   */
+  batchId: string;
+
+  /**
+   * 创建时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 created_at = 11;
+   */
+  createdAt: bigint;
+};
+
+/**
+ * Describes the message admin.InviteCodeListItem.
+ * Use `create(InviteCodeListItemSchema)` to create a new message.
+ */
+export const InviteCodeListItemSchema: GenMessage<InviteCodeListItem> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 41);
+
+/**
+ * BatchQueryCodesResponse - 批量查询邀请码响应
+ *
+ * @generated from message admin.BatchQueryCodesResponse
+ */
+export type BatchQueryCodesResponse = Message<"admin.BatchQueryCodesResponse"> & {
+  /**
+   * @generated from field: int32 code = 1;
+   */
+  code: number;
+
+  /**
+   * @generated from field: string message = 2;
+   */
+  message: string;
+
+  /**
+   * @generated from field: admin.BatchQueryCodesData data = 3;
+   */
+  data?: BatchQueryCodesData;
+};
+
+/**
+ * Describes the message admin.BatchQueryCodesResponse.
+ * Use `create(BatchQueryCodesResponseSchema)` to create a new message.
+ */
+export const BatchQueryCodesResponseSchema: GenMessage<BatchQueryCodesResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 42);
+
+/**
+ * BatchQueryCodesData - 批量查询邀请码数据
+ *
+ * @generated from message admin.BatchQueryCodesData
+ */
+export type BatchQueryCodesData = Message<"admin.BatchQueryCodesData"> & {
+  /**
+   * 找到的邀请码列表
+   *
+   * @generated from field: repeated admin.InviteCodeListItem found = 1;
+   */
+  found: InviteCodeListItem[];
+
+  /**
+   * 未找到的邀请码列表
+   * 返回原始请求中不存在的邀请码字符串
+   *
+   * @generated from field: repeated string not_found = 2;
+   */
+  notFound: string[];
+};
+
+/**
+ * Describes the message admin.BatchQueryCodesData.
+ * Use `create(BatchQueryCodesDataSchema)` to create a new message.
+ */
+export const BatchQueryCodesDataSchema: GenMessage<BatchQueryCodesData> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 43);
+
+/**
+ * GenerateCodesResponse - 生成邀请码响应
+ *
+ * @generated from message admin.GenerateCodesResponse
+ */
+export type GenerateCodesResponse = Message<"admin.GenerateCodesResponse"> & {
+  /**
+   * @generated from field: int32 code = 1;
+   */
+  code: number;
+
+  /**
+   * @generated from field: string message = 2;
+   */
+  message: string;
+
+  /**
+   * @generated from field: admin.GenerateCodesData data = 3;
+   */
+  data?: GenerateCodesData;
+};
+
+/**
+ * Describes the message admin.GenerateCodesResponse.
+ * Use `create(GenerateCodesResponseSchema)` to create a new message.
+ */
+export const GenerateCodesResponseSchema: GenMessage<GenerateCodesResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 44);
+
+/**
+ * GenerateCodesData - 生成邀请码数据
+ *
+ * @generated from message admin.GenerateCodesData
+ */
+export type GenerateCodesData = Message<"admin.GenerateCodesData"> & {
+  /**
+   * 批次号（用于追踪和批量导出）
+   *
+   * @generated from field: string batch_id = 1;
+   */
+  batchId: string;
+
+  /**
+   * 生成的邀请码列表
+   *
+   * @generated from field: repeated string codes = 2;
+   */
+  codes: string[];
+
+  /**
+   * 邀请码类型
+   *
+   * @generated from field: string type = 3;
+   */
+  type: string;
+
+  /**
+   * 实际生成数量
+   *
+   * @generated from field: int32 count = 4;
+   */
+  count: number;
+};
+
+/**
+ * Describes the message admin.GenerateCodesData.
+ * Use `create(GenerateCodesDataSchema)` to create a new message.
+ */
+export const GenerateCodesDataSchema: GenMessage<GenerateCodesData> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 45);
+
+/**
+ * RegenerateCodesResponse - 重新生成邀请码响应
+ *
+ * @generated from message admin.RegenerateCodesResponse
+ */
+export type RegenerateCodesResponse = Message<"admin.RegenerateCodesResponse"> & {
+  /**
+   * @generated from field: int32 code = 1;
+   */
+  code: number;
+
+  /**
+   * @generated from field: string message = 2;
+   */
+  message: string;
+
+  /**
+   * @generated from field: admin.RegenerateCodesData data = 3;
+   */
+  data?: RegenerateCodesData;
+};
+
+/**
+ * Describes the message admin.RegenerateCodesResponse.
+ * Use `create(RegenerateCodesResponseSchema)` to create a new message.
+ */
+export const RegenerateCodesResponseSchema: GenMessage<RegenerateCodesResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 46);
+
+/**
+ * RegenerateCodesData - 重新生成邀请码数据
+ *
+ * @generated from message admin.RegenerateCodesData
+ */
+export type RegenerateCodesData = Message<"admin.RegenerateCodesData"> & {
+  /**
+   * 被作废的邀请码列表
+   *
+   * @generated from field: repeated string revoked = 1;
+   */
+  revoked: string[];
+
+  /**
+   * 新生成的邀请码列表
+   * 与 revoked 一一对应
+   *
+   * @generated from field: repeated string generated = 2;
+   */
+  generated: string[];
+};
+
+/**
+ * Describes the message admin.RegenerateCodesData.
+ * Use `create(RegenerateCodesDataSchema)` to create a new message.
+ */
+export const RegenerateCodesDataSchema: GenMessage<RegenerateCodesData> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 47);
+
+/**
+ * InviteChainResponse - 邀请链响应
+ *
+ * @generated from message admin.InviteChainResponse
+ */
+export type InviteChainResponse = Message<"admin.InviteChainResponse"> & {
+  /**
+   * @generated from field: int32 code = 1;
+   */
+  code: number;
+
+  /**
+   * @generated from field: string message = 2;
+   */
+  message: string;
+
+  /**
+   * @generated from field: admin.InviteChainData data = 3;
+   */
+  data?: InviteChainData;
+};
+
+/**
+ * Describes the message admin.InviteChainResponse.
+ * Use `create(InviteChainResponseSchema)` to create a new message.
+ */
+export const InviteChainResponseSchema: GenMessage<InviteChainResponse> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 48);
+
+/**
+ * InviteChainData - 邀请链数据
+ *
+ * 展示用户的邀请关系：谁邀请了他 + 他邀请了谁
+ *
+ * @generated from message admin.InviteChainData
+ */
+export type InviteChainData = Message<"admin.InviteChainData"> & {
+  /**
+   * 当前用户信息
+   *
+   * @generated from field: admin.InviteChainUser user = 1;
+   */
+  user?: InviteChainUser;
+
+  /**
+   * 邀请当前用户的人（上级）
+   * 如果是自然激活（auto_release）或管理员直接激活，此字段为 null
+   *
+   * @generated from field: admin.InvitedByInfo invited_by = 2;
+   */
+  invitedBy?: InvitedByInfo;
+
+  /**
+   * 当前用户邀请的人列表（下级）
+   * 按邀请时间倒序排列
+   *
+   * @generated from field: repeated admin.InviteChainInvitee invited_users = 3;
+   */
+  invitedUsers: InviteChainInvitee[];
+};
+
+/**
+ * Describes the message admin.InviteChainData.
+ * Use `create(InviteChainDataSchema)` to create a new message.
+ */
+export const InviteChainDataSchema: GenMessage<InviteChainData> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 49);
+
+/**
+ * InviteChainUser - 邀请链中的用户信息
+ *
+ * @generated from message admin.InviteChainUser
+ */
+export type InviteChainUser = Message<"admin.InviteChainUser"> & {
+  /**
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * @generated from field: string nickname = 2;
+   */
+  nickname: string;
+
+  /**
+   * 手机号（脱敏显示）
+   *
+   * @generated from field: string phone = 3;
+   */
+  phone: string;
+
+  /**
+   * 激活方式: "auto_release"、"invite"、"admin"
+   *
+   * @generated from field: string activated_by = 4;
+   */
+  activatedBy: string;
+
+  /**
+   * 激活时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 activated_at = 5;
+   */
+  activatedAt: bigint;
+};
+
+/**
+ * Describes the message admin.InviteChainUser.
+ * Use `create(InviteChainUserSchema)` to create a new message.
+ */
+export const InviteChainUserSchema: GenMessage<InviteChainUser> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 50);
+
+/**
+ * InvitedByInfo - 被谁邀请信息（上级）
+ *
+ * @generated from message admin.InvitedByInfo
+ */
+export type InvitedByInfo = Message<"admin.InvitedByInfo"> & {
+  /**
+   * 邀请人类型: "user" 或 "admin"
+   *
+   * @generated from field: string kind = 1;
+   */
+  kind: string;
+
+  /**
+   * 邀请人用户 ID（kind="user" 时有值）
+   *
+   * @generated from field: string user_id = 2;
+   */
+  userId: string;
+
+  /**
+   * 邀请人昵称（kind="user" 时有值）
+   *
+   * @generated from field: string nickname = 3;
+   */
+  nickname: string;
+
+  /**
+   * 邀请人手机号（kind="user" 时有值，脱敏显示）
+   *
+   * @generated from field: string phone = 4;
+   */
+  phone: string;
+
+  /**
+   * 管理员 ID（kind="admin" 时有值）
+   *
+   * @generated from field: string admin_id = 5;
+   */
+  adminId: string;
+
+  /**
+   * 使用的邀请码
+   *
+   * @generated from field: string code = 6;
+   */
+  code: string;
+};
+
+/**
+ * Describes the message admin.InvitedByInfo.
+ * Use `create(InvitedByInfoSchema)` to create a new message.
+ */
+export const InvitedByInfoSchema: GenMessage<InvitedByInfo> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 51);
+
+/**
+ * InviteChainInvitee - 邀请链中的被邀请人（下级）
+ *
+ * @generated from message admin.InviteChainInvitee
+ */
+export type InviteChainInvitee = Message<"admin.InviteChainInvitee"> & {
+  /**
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * @generated from field: string nickname = 2;
+   */
+  nickname: string;
+
+  /**
+   * 手机号（脱敏显示）
+   *
+   * @generated from field: string phone = 3;
+   */
+  phone: string;
+
+  /**
+   * 使用的邀请码
+   *
+   * @generated from field: string code = 4;
+   */
+  code: string;
+
+  /**
+   * 激活时间（Unix 时间戳，秒）
+   *
+   * @generated from field: int64 activated_at = 5;
+   */
+  activatedAt: bigint;
+};
+
+/**
+ * Describes the message admin.InviteChainInvitee.
+ * Use `create(InviteChainInviteeSchema)` to create a new message.
+ */
+export const InviteChainInviteeSchema: GenMessage<InviteChainInvitee> = /*@__PURE__*/
+  messageDesc(file_admin_admin, 52);
+
+/**
  * @generated from service admin.AdminService
  */
 export const AdminService: GenService<{
@@ -330,4 +2297,419 @@ export const AdminInnerService: GenService<{
   },
 }> = /*@__PURE__*/
   serviceDesc(file_admin_admin, 1);
+
+/**
+ * AdminUserService - 用户管理服务
+ *
+ * 提供用户的查询、状态管理、资料修改等功能
+ * 所有写操作会记录操作日志，支持审计追溯
+ *
+ * -------------------------------------------------------------------------
+ * 查询接口
+ * -------------------------------------------------------------------------
+ *
+ * @generated from service admin.AdminUserService
+ */
+export const AdminUserService: GenService<{
+  /**
+   * GetUsers - 获取用户列表
+   *
+   * 功能: 分页查询用户列表，支持多维度筛选和排序
+   *
+   * 筛选条件:
+   * - keyword: 关键词搜索（手机号/昵称/机构名/user_id）
+   * - status: 状态筛选（支持多选）
+   * - identity_type: 身份类型（individual/organization）
+   * - quota_type: 额度类型（default/custom/unlimited）
+   * - activated_by: 激活方式（auto_release/invite/admin）
+   * - 时间范围: 注册时间、激活时间
+   * - 邀请关系: 邀请码、邀请人
+   *
+   * 返回: 用户列表（包含基本信息、额度信息、邀请码使用统计）
+   *
+   * @generated from rpc admin.AdminUserService.GetUsers
+   */
+  getUsers: {
+    methodKind: "unary";
+    input: typeof UserQuerySchema;
+    output: typeof UserListResponseSchema;
+  },
+  /**
+   * GetUserDetail - 获取用户详情
+   *
+   * 功能: 获取单个用户的完整信息
+   *
+   * 返回内容:
+   * - 基本信息（手机号、昵称、身份类型、机构名等）
+   * - 状态信息（当前状态、状态变更时间、激活信息）
+   * - 邀请人信息（谁邀请的、使用的邀请码）
+   * - 额度信息（类型、限额、今日用量）
+   * - 手机号变更历史
+   * - 用户的邀请码列表（3 个）
+   *
+   * 错误码:
+   * - 404: 用户不存在
+   *
+   * @generated from rpc admin.AdminUserService.GetUserDetail
+   */
+  getUserDetail: {
+    methodKind: "unary";
+    input: typeof UserIdRequestSchema;
+    output: typeof UserDetailResponseSchema;
+  },
+  /**
+   * GetUserOperations - 获取用户操作记录
+   *
+   * 功能: 查询针对指定用户的所有管理员操作记录
+   *
+   * 用途: 审计追踪，查看用户被执行过哪些操作
+   *
+   * 记录内容:
+   * - 操作类型（activate/ban/unban/delete/set_quota 等）
+   * - 操作参数（如设置的额度值）
+   * - 操作原因
+   * - 操作者（admin_id）
+   * - 操作时间
+   *
+   * @generated from rpc admin.AdminUserService.GetUserOperations
+   */
+  getUserOperations: {
+    methodKind: "unary";
+    input: typeof UserOperationsQuerySchema;
+    output: typeof UserOperationsResponseSchema;
+  },
+  /**
+   * ActivateUser - 激活用户（后台手动激活）
+   *
+   * 功能: 将 UNAPPLIED 或 WAITING 状态的用户直接激活为 ACTIVE
+   *
+   * 业务逻辑:
+   * 1. 用户状态变为 ACTIVE
+   * 2. 激活来源记录为 ADMIN
+   * 3. 为用户生成 3 个普通邀请码
+   *
+   * 参数要求:
+   * - user_id: 必填
+   * - reason: 必填（激活原因，用于审计）
+   *
+   * 前置条件:
+   * - 用户状态为 UNAPPLIED 或 WAITING
+   *
+   * 错误码:
+   * - 400: 状态不允许激活（已激活/已封禁/已删除）
+   * - 404: 用户不存在
+   *
+   * @generated from rpc admin.AdminUserService.ActivateUser
+   */
+  activateUser: {
+    methodKind: "unary";
+    input: typeof ActivateUserRequestSchema;
+    output: typeof ApiResponseSchema;
+  },
+  /**
+   * BanUser - 封禁用户
+   *
+   * 功能: 封禁活跃用户，立即踢下线
+   *
+   * 业务逻辑:
+   * 1. 用户状态变为 BANNED
+   * 2. 撤销用户所有 token（立即踢下线）
+   * 3. 暂停用户所有未使用的邀请码（解封时恢复）
+   *
+   * 参数要求:
+   * - user_id: 必填
+   * - reason: 必填（封禁原因，用于审计和用户申诉）
+   *
+   * 前置条件:
+   * - 用户状态为 ACTIVE
+   *
+   * 错误码:
+   * - 400: 状态不允许封禁（非 ACTIVE 状态）
+   * - 404: 用户不存在
+   *
+   * @generated from rpc admin.AdminUserService.BanUser
+   */
+  banUser: {
+    methodKind: "unary";
+    input: typeof BanUserRequestSchema;
+    output: typeof ApiResponseSchema;
+  },
+  /**
+   * UnbanUser - 解封用户
+   *
+   * 功能: 解除用户封禁，恢复正常使用
+   *
+   * 业务逻辑:
+   * 1. 用户状态恢复为 ACTIVE
+   * 2. 恢复因封禁而暂停的邀请码
+   * 3. 用户原有权益（额度配置等）保留
+   *
+   * 参数要求:
+   * - user_id: 必填
+   * - reason: 必填（解封原因）
+   *
+   * 前置条件:
+   * - 用户状态为 BANNED
+   *
+   * 错误码:
+   * - 400: 用户非封禁状态
+   * - 404: 用户不存在
+   *
+   * @generated from rpc admin.AdminUserService.UnbanUser
+   */
+  unbanUser: {
+    methodKind: "unary";
+    input: typeof UnbanUserRequestSchema;
+    output: typeof ApiResponseSchema;
+  },
+  /**
+   * DeleteUser - 删除用户（软删除）
+   *
+   * 功能: 删除用户，释放账号标识
+   *
+   * ⚠️ 警告: 此操作不可逆！
+   *
+   * 业务逻辑:
+   * 1. 用户状态变为 DELETED
+   * 2. 清空手机号、openid、unionid（释放标识，允许重新注册）
+   * 3. 作废所有未使用的邀请码
+   * 4. 撤销所有 token（立即踢下线）
+   * 5. 记录注销日志（用于审计）
+   *
+   * 参数要求:
+   * - user_id: 必填
+   * - reason: 必填（删除原因，用于审计）
+   *
+   * 错误码:
+   * - 400: 用户已被删除
+   * - 404: 用户不存在
+   *
+   * @generated from rpc admin.AdminUserService.DeleteUser
+   */
+  deleteUser: {
+    methodKind: "unary";
+    input: typeof DeleteUserRequestSchema;
+    output: typeof ApiResponseSchema;
+  },
+  /**
+   * UpdateUserProfile - 修改用户资料
+   *
+   * 功能: 修改用户的身份类型、机构名等资料
+   *
+   * 可修改字段:
+   * - identity_type: 身份类型（individual/organization）
+   * - org_name: 机构名称
+   *
+   * 参数要求:
+   * - user_id: 必填
+   * - reason: 必填
+   * - 至少提供一个要修改的字段
+   *
+   * 错误码:
+   * - 404: 用户不存在
+   *
+   * @generated from rpc admin.AdminUserService.UpdateUserProfile
+   */
+  updateUserProfile: {
+    methodKind: "unary";
+    input: typeof UpdateProfileRequestSchema;
+    output: typeof ApiResponseSchema;
+  },
+  /**
+   * SetUserQuota - 设置用户额度
+   *
+   * 功能: 设置用户的每日使用限额或不限额状态
+   *
+   * 使用场景:
+   * 1. 设置自定义限额: is_unlimited=false, daily_limit=100
+   * 2. 设置不限额: is_unlimited=true
+   * 3. 恢复默认限额: is_unlimited=false, 不传 daily_limit
+   * 4. 关闭不限额: is_unlimited=false（恢复默认 50/天）
+   *
+   * 参数要求:
+   * - user_id: 必填
+   * - reason: 必填
+   *
+   * 业务规则:
+   * - 限额调整立即生效
+   * - 若将限额调低到 < 今日已用，用户立即被拦截到次日
+   *
+   * 错误码:
+   * - 404: 用户不存在
+   *
+   * @generated from rpc admin.AdminUserService.SetUserQuota
+   */
+  setUserQuota: {
+    methodKind: "unary";
+    input: typeof SetQuotaRequestSchema;
+    output: typeof ApiResponseSchema;
+  },
+}> = /*@__PURE__*/
+  serviceDesc(file_admin_admin, 2);
+
+/**
+ * AdminInviteService - 邀请码管理服务
+ *
+ * 提供邀请码的查询、生成、作废等功能
+ * 支持普通邀请码和不限额邀请码两种类型
+ *
+ * -------------------------------------------------------------------------
+ * 查询接口
+ * -------------------------------------------------------------------------
+ *
+ * @generated from service admin.AdminInviteService
+ */
+export const AdminInviteService: GenService<{
+  /**
+   * GetInviteCodes - 获取邀请码列表
+   *
+   * 功能: 分页查询邀请码列表，支持多维度筛选
+   *
+   * 筛选条件:
+   * - code: 精确匹配邀请码
+   * - batch_id: 批次号（同一批生成的邀请码共享）
+   * - type: 类型（normal/unlimited）
+   * - status: 状态（unused/used/revoked/suspended）
+   * - inviter_kind: 生成者类型（user/admin）
+   * - 生成者/使用者 ID
+   * - 时间范围
+   *
+   * 返回: 邀请码列表（包含完整信息和关联用户信息）
+   *
+   * @generated from rpc admin.AdminInviteService.GetInviteCodes
+   */
+  getInviteCodes: {
+    methodKind: "unary";
+    input: typeof InviteCodeQuerySchema;
+    output: typeof InviteCodeListResponseSchema;
+  },
+  /**
+   * BatchQueryCodes - 批量查询邀请码信息
+   *
+   * 功能: 根据邀请码字符串批量查询详细信息
+   *
+   * 使用场景:
+   * - 批量导入邀请码时检查状态
+   * - 批量查看邀请码使用情况
+   *
+   * 参数要求:
+   * - codes: 邀请码字符串列表，最多 100 个
+   *
+   * 返回:
+   * - found: 找到的邀请码列表
+   * - not_found: 未找到的邀请码列表
+   *
+   * @generated from rpc admin.AdminInviteService.BatchQueryCodes
+   */
+  batchQueryCodes: {
+    methodKind: "unary";
+    input: typeof BatchQueryCodesRequestSchema;
+    output: typeof BatchQueryCodesResponseSchema;
+  },
+  /**
+   * GetInviteChain - 获取邀请链
+   *
+   * 功能: 查看用户的邀请关系链
+   *
+   * 返回内容:
+   * - user: 当前用户信息
+   * - invited_by: 邀请当前用户的人（上级）
+   * - invited_users: 当前用户邀请的人列表（下级）
+   *
+   * 用途:
+   * - 追溯邀请来源
+   * - 查看邀请裂变效果
+   *
+   * 错误码:
+   * - 404: 用户不存在
+   *
+   * @generated from rpc admin.AdminInviteService.GetInviteChain
+   */
+  getInviteChain: {
+    methodKind: "unary";
+    input: typeof UserIdRequestSchema;
+    output: typeof InviteChainResponseSchema;
+  },
+  /**
+   * GenerateCodes - 生成邀请码（管理员生成）
+   *
+   * 功能: 批量生成管理员邀请码
+   *
+   * 参数要求:
+   * - type: 必填，"normal" 或 "unlimited"
+   * - count: 必填，1-100
+   * - note: 必填，备注说明（同一批次共享）
+   *
+   * 返回:
+   * - batch_id: 批次号（用于追踪和导出）
+   * - codes: 生成的邀请码列表
+   *
+   * 业务规则:
+   * - 管理员生成的邀请码标记 inviter_kind=admin
+   * - 使用不限额邀请码激活的用户自动获得不限额权益
+   *
+   * @generated from rpc admin.AdminInviteService.GenerateCodes
+   */
+  generateCodes: {
+    methodKind: "unary";
+    input: typeof GenerateCodesRequestSchema;
+    output: typeof GenerateCodesResponseSchema;
+  },
+  /**
+   * RegenerateCodes - 重新生成邀请码（换码）
+   *
+   * 功能: 作废指定邀请码并生成新码
+   *
+   * 使用场景:
+   * - 用户邀请码泄露，需要作废旧码换新码
+   * - 邀请码长期未使用，需要更换
+   *
+   * 业务规则:
+   * - 仅对"未使用"状态的邀请码允许换码
+   * - 换码 = 作废旧码 + 生成新码
+   * - 新码继承原码的 type、inviter 等属性
+   * - 不增加邀请名额
+   *
+   * 参数要求:
+   * - codes: 要换的邀请码列表
+   * - reason: 必填
+   *
+   * 返回:
+   * - revoked: 被作废的邀请码列表
+   * - generated: 新生成的邀请码列表
+   *
+   * 注意: 如果某个邀请码不存在或状态不允许，会跳过并继续处理其他邀请码
+   *
+   * @generated from rpc admin.AdminInviteService.RegenerateCodes
+   */
+  regenerateCodes: {
+    methodKind: "unary";
+    input: typeof RegenerateCodesRequestSchema;
+    output: typeof RegenerateCodesResponseSchema;
+  },
+  /**
+   * RevokeCode - 作废邀请码
+   *
+   * 功能: 作废指定的邀请码
+   *
+   * 参数要求:
+   * - code: 必填，邀请码字符串
+   * - reason: 必填
+   *
+   * 前置条件:
+   * - 邀请码状态为 unused 或 suspended
+   *
+   * 错误码:
+   * - 400: 已使用的邀请码不能作废 / 邀请码已被作废
+   * - 404: 邀请码不存在
+   *
+   * @generated from rpc admin.AdminInviteService.RevokeCode
+   */
+  revokeCode: {
+    methodKind: "unary";
+    input: typeof RevokeCodeRequestSchema;
+    output: typeof ApiResponseSchema;
+  },
+}> = /*@__PURE__*/
+  serviceDesc(file_admin_admin, 3);
 
